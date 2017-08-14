@@ -170,9 +170,9 @@
     [self.banner sd_setImageWithURL:[NSURL URLWithString:model.banner]];
     NSLog(@"screen width %f", LYScreenWidth);
     NSLog(@"length::: %ld", model.summary.length);
-    if((float)model.summary.length/LYScreenWidth > 0.12)
+    if((float)model.summary.length/LYScreenWidth > 0.11)
     {
-        NSString *temStr = [model.summary substringToIndex:(int)(LYScreenWidth * 0.12)];
+        NSString *temStr = [model.summary substringToIndex:(int)(LYScreenWidth * 0.11)];
         model.summary = [temStr stringByAppendingString:@"…"];
     }
     self.rmdDescription.text = model.summary;

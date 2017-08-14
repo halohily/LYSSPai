@@ -67,6 +67,8 @@
                 make.width.mas_equalTo(20.0);
                 make.height.mas_equalTo(20.0);
             }];
+//            模拟导航条控件也在scrollview上的效果
+            self.frame = CGRectMake(0, 0, LYScreenWidth, 100 + ((-130) - Y));
         }
 }
 //导航标题label懒加载
@@ -80,7 +82,7 @@
         title.textAlignment = NSTextAlignmentLeft;
         [self addSubview:title];
         [title mas_makeConstraints:^(MASConstraintMaker *make){
-            make.left.mas_equalTo(self.mas_left).with.offset(27);
+            make.left.mas_equalTo(self.mas_left).with.offset(25);
             make.bottom.mas_equalTo(self.mas_bottom).with.offset(-10);
             make.height.mas_equalTo(36);
             make.width.mas_equalTo(120);
@@ -98,7 +100,7 @@
         [button addTarget:self action:@selector(buttonClicked) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
         [button mas_makeConstraints:^(MASConstraintMaker *make){
-            make.right.mas_equalTo(self.mas_right).with.offset(-27);
+            make.right.mas_equalTo(self.mas_right).with.offset(-25);
             make.bottom.mas_equalTo(self.mas_bottom).with.offset(-15);
             make.width.mas_equalTo(20);
             make.height.mas_equalTo(20);

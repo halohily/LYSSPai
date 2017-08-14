@@ -7,6 +7,7 @@
 //
 
 #import "PaidNewsCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation PaidNewsCell
 
@@ -52,19 +53,82 @@
         make.left.mas_equalTo(self.contentView.mas_left).with.offset(0);
         make.top.mas_equalTo(cellTitle.mas_bottom).with.offset(15.0);
         make.right.mas_equalTo(self.contentView.mas_right).with.offset(0);
-        make.height.mas_equalTo(LYScreenWidth * 0.8);
+        make.height.mas_equalTo(LYScreenWidth * 0.7);
     }];
     backScrollView.backgroundColor = [UIColor whiteColor];
     backScrollView.showsHorizontalScrollIndicator = NO;
-    backScrollView.contentSize = CGSizeMake(35 + self.model.PaidNewsData.count * (LYScreenWidth * 0.55 + 15), LYScreenWidth * 0.8);
+    backScrollView.contentSize = CGSizeMake(35 + self.model.PaidNewsData.count * (LYScreenWidth * 0.55 + 15), LYScreenWidth * 0.7);
     
     for (int i = 0; i < self.model.PaidNewsData.count; i++)
     {
-        UIImageView *paidNewsView = [[UIImageView alloc] initWithFrame:CGRectMake(25 + (LYScreenWidth * 0.55 + 15) * i, 0, LYScreenWidth * 0.55, LYScreenWidth * 0.8)];
+        UIImageView *paidNewsView = [[UIImageView alloc] initWithFrame:CGRectMake(25 + (LYScreenWidth * 0.55 + 15) * i, 0, LYScreenWidth * 0.55, LYScreenWidth * 0.7)];
         paidNewsView.layer.cornerRadius = 5.0;
         paidNewsView.layer.masksToBounds = YES;
         paidNewsView.tag = i;
-        [paidNewsView setImage:[UIImage imageNamed:[self.model.PaidNewsData objectAtIndex:i][@"image"]]];
+        [paidNewsView sd_setImageWithURL:[NSURL URLWithString:self.model.PaidNewsData[i][@"banner"]]];
+        
+        UILabel *paidTitle = [[UILabel alloc] init];
+        [paidNewsView addSubview:paidTitle];
+        paidTitle.preferredMaxLayoutWidth = (LYScreenWidth * 0.55 - 30.0);
+        [paidTitle setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+        paidTitle.numberOfLines = 0;
+        [paidTitle mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(paidNewsView.mas_left).with.offset(15.0);
+            make.right.mas_equalTo(paidNewsView.mas_right).with.offset(-15.0);
+            make.top.mas_equalTo(paidNewsView.mas_top).with.offset(50.0);
+        }];
+        paidTitle.textAlignment = NSTextAlignmentLeft;
+        paidTitle.font = [UIFont boldSystemFontOfSize:20.0];
+        paidTitle.textColor = [UIColor whiteColor];
+        paidTitle.text = self.model.PaidNewsData[i][@"title"];
+        
+        UIImageView *avator = [[UIImageView alloc] init];
+        [paidNewsView addSubview:avator];
+        [avator mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(paidNewsView.mas_left).with.offset(15.0);
+            make.top.mas_equalTo(paidNewsView.mas_bottom).with.offset(- 90);
+            make.width.mas_equalTo(20.0);
+            make.height.mas_equalTo(20.0);
+        }];
+        avator.layer.cornerRadius = 10;
+        avator.layer.masksToBounds = YES;
+        [avator sd_setImageWithURL:[NSURL URLWithString:self.model.PaidNewsData[i][@"avatar"]]];
+        
+        UILabel *nickname = [[UILabel alloc] init];
+        [paidNewsView addSubview:nickname];
+        [nickname mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(avator.mas_right).with.offset(10);
+            make.top.mas_equalTo(paidNewsView.mas_bottom).with.offset(-85);
+            make.right.mas_equalTo(paidNewsView.mas_right).with.offset(-30);
+            make.height.mas_equalTo(12);
+        }];
+        nickname.textAlignment = NSTextAlignmentLeft;
+        nickname.font = [UIFont boldSystemFontOfSize:12.0];
+        nickname.textColor = [UIColor whiteColor];
+        nickname.text = self.model.PaidNewsData[i][@"nickname"];
+        
+        UILabel *updateInfo = [[UILabel alloc] init];
+        [paidNewsView addSubview:updateInfo];
+        [updateInfo mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(paidNewsView.mas_left).with.offset(15.0);
+            make.top.mas_equalTo(paidNewsView.mas_bottom).with.offset(-50);
+            make.right.mas_equalTo(paidNewsView.mas_right).with.offset(-15.0);
+            make.height.mas_equalTo(12.0);
+        }];
+        updateInfo.font = [UIFont systemFontOfSize:12.0];
+        updateInfo.textColor = [UIColor whiteColor];
+        updateInfo.textAlignment = NSTextAlignmentLeft;
+        
+        NSString *update_total = self.model.PaidNewsData[i][@"update_total"];
+        NSString *article_total = self.model.PaidNewsData[i][@"article_total"];
+        if (update_total.integerValue >= article_total.integerValue)
+        {
+            updateInfo.text = [NSString stringWithFormat:@"已完结，共%@期", article_total];
+        }
+        else
+        {
+            updateInfo.text = [NSString stringWithFormat:@"已经更新至第%@期", update_total];
+        }
         [backScrollView addSubview:paidNewsView];
     }
 }

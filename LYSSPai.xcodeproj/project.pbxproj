@@ -26,6 +26,13 @@
 		08AEA2A51F4080A400A8F91B /* AdsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA2A41F4080A400A8F91B /* AdsModel.m */; };
 		08AEA2A81F4080B600A8F91B /* NewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA2A71F4080B600A8F91B /* NewsModel.m */; };
 		08AEA2AB1F4080CB00A8F91B /* PaidNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA2AA1F4080CB00A8F91B /* PaidNewsModel.m */; };
+		08AEA2AD1F41A87800A8F91B /* newsData.json in Resources */ = {isa = PBXBuildFile; fileRef = 08AEA2AC1F41A87800A8F91B /* newsData.json */; };
+		08AEA2B11F41B48800A8F91B /* adsData.json in Resources */ = {isa = PBXBuildFile; fileRef = 08AEA2AE1F41B48800A8F91B /* adsData.json */; };
+		08AEA2B21F41B48800A8F91B /* paidNewsData.json in Resources */ = {isa = PBXBuildFile; fileRef = 08AEA2AF1F41B48800A8F91B /* paidNewsData.json */; };
+		08AEA2B31F41B48800A8F91B /* newsData2.json in Resources */ = {isa = PBXBuildFile; fileRef = 08AEA2B01F41B48800A8F91B /* newsData2.json */; };
+		08AEA2B51F41C48A00A8F91B /* find.json in Resources */ = {isa = PBXBuildFile; fileRef = 08AEA2B41F41C48900A8F91B /* find.json */; };
+		08AEA2BB1F41C54700A8F91B /* FindCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA2BA1F41C54700A8F91B /* FindCell.m */; };
+		08AEA2BE1F41C55B00A8F91B /* FindModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA2BD1F41C55B00A8F91B /* FindModel.m */; };
 		0DBA4869A74FAABB15C4AEA7 /* libPods-LYSSPai.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BCCD8B222D2A11AB86D018 /* libPods-LYSSPai.a */; };
 		D791D3A324B2219776500FFB /* libPods-LYSSPaiUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 048BD983B929E18478DDA7BE /* libPods-LYSSPaiUITests.a */; };
 /* End PBXBuildFile section */
@@ -87,6 +94,15 @@
 		08AEA2A71F4080B600A8F91B /* NewsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsModel.m; sourceTree = "<group>"; };
 		08AEA2A91F4080CB00A8F91B /* PaidNewsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaidNewsModel.h; sourceTree = "<group>"; };
 		08AEA2AA1F4080CB00A8F91B /* PaidNewsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaidNewsModel.m; sourceTree = "<group>"; };
+		08AEA2AC1F41A87800A8F91B /* newsData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = newsData.json; sourceTree = "<group>"; };
+		08AEA2AE1F41B48800A8F91B /* adsData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = adsData.json; sourceTree = "<group>"; };
+		08AEA2AF1F41B48800A8F91B /* paidNewsData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = paidNewsData.json; sourceTree = "<group>"; };
+		08AEA2B01F41B48800A8F91B /* newsData2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = newsData2.json; sourceTree = "<group>"; };
+		08AEA2B41F41C48900A8F91B /* find.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = find.json; sourceTree = "<group>"; };
+		08AEA2B91F41C54700A8F91B /* FindCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindCell.h; sourceTree = "<group>"; };
+		08AEA2BA1F41C54700A8F91B /* FindCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindCell.m; sourceTree = "<group>"; };
+		08AEA2BC1F41C55B00A8F91B /* FindModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindModel.h; sourceTree = "<group>"; };
+		08AEA2BD1F41C55B00A8F91B /* FindModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindModel.m; sourceTree = "<group>"; };
 		730961651010214BB6992570 /* libPods-LYSSPaiTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LYSSPaiTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		864C56B68E311541B809EFC3 /* Pods-LYSSPaiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LYSSPaiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LYSSPaiTests/Pods-LYSSPaiTests.release.xcconfig"; sourceTree = "<group>"; };
 		B65E504DFD23B15591185539 /* Pods-LYSSPaiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LYSSPaiUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LYSSPaiUITests/Pods-LYSSPaiUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -155,6 +171,11 @@
 				0811BFCC1F3EC361000FEBB7 /* Login */,
 				0811BB9B1F3EB3EC000FEBB7 /* Assets.xcassets */,
 				0811BB9D1F3EB3EC000FEBB7 /* LaunchScreen.storyboard */,
+				08AEA2B41F41C48900A8F91B /* find.json */,
+				08AEA2AC1F41A87800A8F91B /* newsData.json */,
+				08AEA2AE1F41B48800A8F91B /* adsData.json */,
+				08AEA2AF1F41B48800A8F91B /* paidNewsData.json */,
+				08AEA2B01F41B48800A8F91B /* newsData2.json */,
 				0811BBA01F3EB3EC000FEBB7 /* Info.plist */,
 				0811BB8F1F3EB3EC000FEBB7 /* Supporting Files */,
 				0811BFD61F3EEB82000FEBB7 /* PrefixHeader.pch */,
@@ -194,8 +215,9 @@
 		0811BFCA1F3EC353000FEBB7 /* Found */ = {
 			isa = PBXGroup;
 			children = (
-				0811BFC31F3EBC37000FEBB7 /* FoundViewController.h */,
-				0811BFC41F3EBC37000FEBB7 /* FoundViewController.m */,
+				08AEA2B81F41C51F00A8F91B /* Model */,
+				08AEA2B71F41C51800A8F91B /* View */,
+				08AEA2B61F41C50F00A8F91B /* ViewController */,
 			);
 			name = Found;
 			sourceTree = "<group>";
@@ -273,6 +295,33 @@
 				0811BFCE1F3ED0DE000FEBB7 /* HeaderView.m */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		08AEA2B61F41C50F00A8F91B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0811BFC31F3EBC37000FEBB7 /* FoundViewController.h */,
+				0811BFC41F3EBC37000FEBB7 /* FoundViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		08AEA2B71F41C51800A8F91B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				08AEA2B91F41C54700A8F91B /* FindCell.h */,
+				08AEA2BA1F41C54700A8F91B /* FindCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		08AEA2B81F41C51F00A8F91B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				08AEA2BC1F41C55B00A8F91B /* FindModel.h */,
+				08AEA2BD1F41C55B00A8F91B /* FindModel.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		377A8602D8B960723BD97FFD /* Pods */ = {
@@ -416,7 +465,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08AEA2B51F41C48A00A8F91B /* find.json in Resources */,
 				0811BB9F1F3EB3EC000FEBB7 /* LaunchScreen.storyboard in Resources */,
+				08AEA2B21F41B48800A8F91B /* paidNewsData.json in Resources */,
+				08AEA2AD1F41A87800A8F91B /* newsData.json in Resources */,
+				08AEA2B31F41B48800A8F91B /* newsData2.json in Resources */,
+				08AEA2B11F41B48800A8F91B /* adsData.json in Resources */,
 				0811BB9C1F3EB3EC000FEBB7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -580,9 +634,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08AEA2BB1F41C54700A8F91B /* FindCell.m in Sources */,
 				0811BB941F3EB3EC000FEBB7 /* AppDelegate.m in Sources */,
 				0811BFCF1F3ED0DE000FEBB7 /* HeaderView.m in Sources */,
 				08AEA29C1F407FF300A8F91B /* NewsCell.m in Sources */,
+				08AEA2BE1F41C55B00A8F91B /* FindModel.m in Sources */,
 				08AEA29F1F40804200A8F91B /* PaidNewsCell.m in Sources */,
 				0811BFB31F3EB9EA000FEBB7 /* LYTabBarController.m in Sources */,
 				0811BFB61F3EBA03000FEBB7 /* LYNavController.m in Sources */,

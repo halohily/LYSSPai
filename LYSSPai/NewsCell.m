@@ -7,6 +7,7 @@
 //
 
 #import "NewsCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface NewsCell()
 
@@ -163,15 +164,15 @@
 - (void)setModel:(NewsModel *)model
 {
     _model = model;
-    [self.avator setImage:[UIImage imageNamed:model.avator]];
+    [self.avator sd_setImageWithURL:[NSURL URLWithString:model.avator]];
     self.nickname.text = model.nickname;
     self.articleTitle.text = model.title;
-    [self.banner setImage:[UIImage imageNamed:model.banner]];
+    [self.banner sd_setImageWithURL:[NSURL URLWithString:model.banner]];
     NSLog(@"screen width %f", LYScreenWidth);
     NSLog(@"length::: %ld", model.summary.length);
-    if((float)model.summary.length/LYScreenWidth > 0.136)
+    if((float)model.summary.length/LYScreenWidth > 0.12)
     {
-        NSString *temStr = [model.summary substringToIndex:(int)(LYScreenWidth * 0.136)];
+        NSString *temStr = [model.summary substringToIndex:(int)(LYScreenWidth * 0.12)];
         model.summary = [temStr stringByAppendingString:@"…"];
     }
     self.rmdDescription.text = model.summary;

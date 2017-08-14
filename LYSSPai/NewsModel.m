@@ -14,13 +14,14 @@
 {
     NewsModel *model = [[self alloc] init];
     model.title = dic[@"title"];
-    model.avator = dic[@"avator"];
-    model.nickname = dic[@"nickname"];
     model.banner = dic[@"banner"];
-    model.summary = dic[@"summary"];
+    model.summary = dic[@"promote_intro"];
     model.like_total = dic[@"like_total"];
     model.comment_total = dic[@"comment_total"];
     model.released_at = dic[@"released_at"];
+    NSMutableDictionary *author = dic[@"author"];
+    model.avator = author[@"avatar"];
+    model.nickname = author[@"nickname"];
     return model;
 }
 @end

@@ -57,11 +57,14 @@
 {
     if(_newsData == nil)
     {
-        NSArray *news = @[@{@"title":@"不失败 10 次，这个游戏你休想通过一关：Pigeon Wings ", @"released_at":@"1502606924", @"comment_total":@"4", @"like_total":@"3", @"summary":@"现象级游戏 Flappy Bird 一定还让你印象深刻，那种折磨心灵但又让人欲罢不能的心情似乎正合玩家", @"nickname":@"ElijahLee",  @"avator":@"progresshud_background",  @"banner":@"ad0"}, @{@"title":@"不失败 10 次，这个游戏你休想通过一关：Pigeon Wings ", @"released_at":@"1502606924", @"comment_total":@"4", @"like_total":@"3", @"summary":@"现象级游戏 Flappy Bird 一定还让你印象深刻，那种折磨心灵但又让人欲罢不能的心情似乎正合玩家「受虐」的心理。如果你是这类游戏的爱好者，一定不能错过近日上架的 Pigeon Wings。Pig...", @"nickname":@"ElijahLee",  @"avator":@"默认头像_36x36_",  @"banner":@"ad0"}, @{@"title":@"不失败 10 次，这个游戏你休想通过一关：Pigeon Wings ", @"released_at":@"1502606924", @"comment_total":@"4", @"like_total":@"3", @"summary":@"现象级游戏 Flappy Bird 一定还让你印象深刻，那种折磨心灵但又让人欲罢不能的心情似乎正合玩家「受虐」的心理。如果你是这类游戏的爱好者，一定不能错过近日上架的 Pigeon Wings。Pig...", @"nickname":@"ElijahLee",  @"avatar":@"默认头像_36x36_",  @"banner":@"ad0"}, @{@"title":@"不失败 10 次，这个游戏你休想通过一关：Pigeon Wings ", @"released_at":@"1502606924", @"comment_total":@"4", @"like_total":@"3", @"summary":@"现象级游戏 Flappy Bird 一定还让你印象深刻，那种折磨心灵但又让人欲罢不能的心情似乎正合玩家「受虐」的心理。如果你是这类游戏的爱好者，一定不能错过近日上架的 Pigeon Wings。Pig...", @"nickname":@"ElijahLee",  @"avator":@"默认头像_36x36_",  @"banner":@"ad0"}, @{@"title":@"不失败 10 次，这个游戏你休想通过一关：Pigeon Wings ", @"released_at":@"1502606924", @"comment_total":@"4", @"like_total":@"3", @"summary":@"现象级游戏 Flappy Bird 一定还让你印象深刻，那种折磨心灵但又让人欲罢不能的心情似乎正合玩家「受虐」的心理。如果你是这类游戏的爱好者，一定不能错过近日上架的 Pigeon Wings。Pig...", @"nickname":@"ElijahLee",  @"avator":@"默认头像_36x36_",  @"banner":@"ad0"}, @{@"title":@"不失败 10 次，这个游戏你休想通过一关：Pigeon Wings ", @"released_at":@"1502606924", @"comment_total":@"4", @"like_total":@"3", @"summary":@"现象级游戏 Flappy Bird 一定还让你印象深刻，那种折磨心灵但又让人欲罢不能的心情似乎正合玩家「受虐」的心理。如果你是这类游戏的爱好者，一定不能错过近日上架的 Pigeon Wings。Pig...", @"nickname":@"ElijahLee",  @"avator":@"默认头像_36x36_",  @"banner":@"ad0"}];
+        NSData *JSONData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"newsData" ofType:@"json"]];
+        
+        NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingAllowFragments error:nil];
+        
+        NSMutableArray *newsArray = [dataDic objectForKey:@"data"];
         NSMutableArray *newsdata = [NSMutableArray array];
-        for (NSDictionary *dic in news)
-        {
-            NewsModel *model = [NewsModel NewsModelWithDic:dic];
+        for (NSDictionary *dict in newsArray) {
+            NewsModel *model = [NewsModel NewsModelWithDic:dict];
             [newsdata addObject:model];
         }
         _newsData = newsdata;
@@ -73,8 +76,11 @@
 {
     if (_adsData == nil)
     {
-        NSArray *ads = @[@{@"image":@"ad0"}, @{@"image":@"ad1"}, @{@"image":@"ad2"}, @{@"image":@"ad3"}, @{@"image":@"ad4"}];
-        AdsModel *model = [AdsModel AdsModelWithArr:ads];
+        NSData *JSONData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"adsData" ofType:@"json"]];
+        
+        NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingAllowFragments error:nil];
+        NSMutableArray *adsArray = dataDic[@"data"];
+        AdsModel *model = [AdsModel AdsModelWithArr:adsArray];
         NSMutableArray *adsdata = [NSMutableArray arrayWithObject:model];
         _adsData = adsdata;
     }
@@ -85,8 +91,11 @@
 {
     if (_paidNewsData == nil)
     {
-        NSArray *paidNews = @[@{@"image":@"sns_icon_1"}, @{@"image":@"sns_icon_1"}, @{@"image":@"sns_icon_1"}];
-        PaidNewsModel *model = [PaidNewsModel PaidNewsModelWithArr:paidNews];
+        NSData *JSONData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"paidNewsData" ofType:@"json"]];
+        
+        NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingAllowFragments error:nil];
+        NSMutableArray *paidNewsArray = dataDic[@"data"];
+        PaidNewsModel *model = [PaidNewsModel PaidNewsModelWithArr:paidNewsArray];
         NSMutableArray *paidnews = [NSMutableArray arrayWithObject:model];
         _paidNewsData = paidnews;
     }
@@ -125,7 +134,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.newsData.count;
+    return self.newsData.count + 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

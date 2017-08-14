@@ -7,7 +7,7 @@
 //
 
 #import "AdsCell.h"
-
+#import <SDWebImage/UIImageView+WebCache.h>
 @interface AdsCell()
 
 @property (nonatomic, weak) UIScrollView *backScrollView;
@@ -44,7 +44,7 @@
         AdsView.frame = CGRectMake(0, 0, LYScreenWidth - 50, (LYScreenWidth - 50) * 0.53125);
         AdsView.layer.cornerRadius = 5.0;
         AdsView.layer.masksToBounds = YES;
-        [AdsView setImage:[UIImage imageNamed:[self.model.AdsData objectAtIndex:i][@"image"]]];
+        [AdsView sd_setImageWithURL:[NSURL URLWithString:self.model.AdsData[i][@"image"]]];
         AdsView.tag = i;
         [shadowView addSubview:AdsView];
         [self.backScrollView addSubview:shadowView];

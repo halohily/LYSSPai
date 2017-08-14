@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07709897743741A981FE44DE /* libPods-LYSSPaiTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 730961651010214BB6992570 /* libPods-LYSSPaiTests.a */; };
 		0811BB911F3EB3EC000FEBB7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0811BB901F3EB3EC000FEBB7 /* main.m */; };
 		0811BB941F3EB3EC000FEBB7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0811BB931F3EB3EC000FEBB7 /* AppDelegate.m */; };
 		0811BB9C1F3EB3EC000FEBB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0811BB9B1F3EB3EC000FEBB7 /* Assets.xcassets */; };
@@ -18,6 +19,15 @@
 		0811BFC21F3EBC28000FEBB7 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0811BFC11F3EBC28000FEBB7 /* HomePageViewController.m */; };
 		0811BFC51F3EBC37000FEBB7 /* FoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0811BFC41F3EBC37000FEBB7 /* FoundViewController.m */; };
 		0811BFC81F3EBC55000FEBB7 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0811BFC71F3EBC55000FEBB7 /* MessageViewController.m */; };
+		0811BFCF1F3ED0DE000FEBB7 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0811BFCE1F3ED0DE000FEBB7 /* HeaderView.m */; };
+		08AEA2991F407FE200A8F91B /* AdsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA2981F407FE200A8F91B /* AdsCell.m */; };
+		08AEA29C1F407FF300A8F91B /* NewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA29B1F407FF300A8F91B /* NewsCell.m */; };
+		08AEA29F1F40804200A8F91B /* PaidNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA29E1F40804200A8F91B /* PaidNewsCell.m */; };
+		08AEA2A51F4080A400A8F91B /* AdsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA2A41F4080A400A8F91B /* AdsModel.m */; };
+		08AEA2A81F4080B600A8F91B /* NewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA2A71F4080B600A8F91B /* NewsModel.m */; };
+		08AEA2AB1F4080CB00A8F91B /* PaidNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA2AA1F4080CB00A8F91B /* PaidNewsModel.m */; };
+		0DBA4869A74FAABB15C4AEA7 /* libPods-LYSSPai.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BCCD8B222D2A11AB86D018 /* libPods-LYSSPai.a */; };
+		D791D3A324B2219776500FFB /* libPods-LYSSPaiUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 048BD983B929E18478DDA7BE /* libPods-LYSSPaiUITests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		048BD983B929E18478DDA7BE /* libPods-LYSSPaiUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LYSSPaiUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0811BB8C1F3EB3EC000FEBB7 /* LYSSPai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LYSSPai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0811BB901F3EB3EC000FEBB7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0811BB921F3EB3EC000FEBB7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -61,6 +72,29 @@
 		0811BFC41F3EBC37000FEBB7 /* FoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundViewController.m; sourceTree = "<group>"; };
 		0811BFC61F3EBC55000FEBB7 /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
 		0811BFC71F3EBC55000FEBB7 /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
+		0811BFCD1F3ED0DE000FEBB7 /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
+		0811BFCE1F3ED0DE000FEBB7 /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
+		0811BFD61F3EEB82000FEBB7 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		08AEA2971F407FE200A8F91B /* AdsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsCell.h; sourceTree = "<group>"; };
+		08AEA2981F407FE200A8F91B /* AdsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdsCell.m; sourceTree = "<group>"; };
+		08AEA29A1F407FF300A8F91B /* NewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsCell.h; sourceTree = "<group>"; };
+		08AEA29B1F407FF300A8F91B /* NewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsCell.m; sourceTree = "<group>"; };
+		08AEA29D1F40804200A8F91B /* PaidNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaidNewsCell.h; sourceTree = "<group>"; };
+		08AEA29E1F40804200A8F91B /* PaidNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaidNewsCell.m; sourceTree = "<group>"; };
+		08AEA2A31F4080A400A8F91B /* AdsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsModel.h; sourceTree = "<group>"; };
+		08AEA2A41F4080A400A8F91B /* AdsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdsModel.m; sourceTree = "<group>"; };
+		08AEA2A61F4080B600A8F91B /* NewsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsModel.h; sourceTree = "<group>"; };
+		08AEA2A71F4080B600A8F91B /* NewsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsModel.m; sourceTree = "<group>"; };
+		08AEA2A91F4080CB00A8F91B /* PaidNewsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaidNewsModel.h; sourceTree = "<group>"; };
+		08AEA2AA1F4080CB00A8F91B /* PaidNewsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaidNewsModel.m; sourceTree = "<group>"; };
+		730961651010214BB6992570 /* libPods-LYSSPaiTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LYSSPaiTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		864C56B68E311541B809EFC3 /* Pods-LYSSPaiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LYSSPaiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LYSSPaiTests/Pods-LYSSPaiTests.release.xcconfig"; sourceTree = "<group>"; };
+		B65E504DFD23B15591185539 /* Pods-LYSSPaiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LYSSPaiUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LYSSPaiUITests/Pods-LYSSPaiUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BFE6C7EFC00EAFB9DC8831DF /* Pods-LYSSPai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LYSSPai.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LYSSPai/Pods-LYSSPai.debug.xcconfig"; sourceTree = "<group>"; };
+		CC67453B7788386F3B9CA6AE /* Pods-LYSSPaiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LYSSPaiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LYSSPaiTests/Pods-LYSSPaiTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CCD9CB26E3F88F3A35D70399 /* Pods-LYSSPaiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LYSSPaiUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LYSSPaiUITests/Pods-LYSSPaiUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D366C234FC70A18C81E460F4 /* Pods-LYSSPai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LYSSPai.release.xcconfig"; path = "Pods/Target Support Files/Pods-LYSSPai/Pods-LYSSPai.release.xcconfig"; sourceTree = "<group>"; };
+		D5BCCD8B222D2A11AB86D018 /* libPods-LYSSPai.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LYSSPai.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DBA4869A74FAABB15C4AEA7 /* libPods-LYSSPai.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07709897743741A981FE44DE /* libPods-LYSSPaiTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D791D3A324B2219776500FFB /* libPods-LYSSPaiUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +130,8 @@
 			children = (
 				0811BB8E1F3EB3EC000FEBB7 /* LYSSPai */,
 				0811BB8D1F3EB3EC000FEBB7 /* Products */,
+				377A8602D8B960723BD97FFD /* Pods */,
+				ADAFDE5A5226781F4B9793B9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,6 +157,7 @@
 				0811BB9D1F3EB3EC000FEBB7 /* LaunchScreen.storyboard */,
 				0811BBA01F3EB3EC000FEBB7 /* Info.plist */,
 				0811BB8F1F3EB3EC000FEBB7 /* Supporting Files */,
+				0811BFD61F3EEB82000FEBB7 /* PrefixHeader.pch */,
 			);
 			path = LYSSPai;
 			sourceTree = "<group>";
@@ -135,12 +175,8 @@
 		0811BFB01F3EB9BF000FEBB7 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				0811BFB11F3EB9EA000FEBB7 /* LYTabBarController.h */,
-				0811BFB21F3EB9EA000FEBB7 /* LYTabBarController.m */,
-				0811BFB41F3EBA03000FEBB7 /* LYNavController.h */,
-				0811BFB51F3EBA03000FEBB7 /* LYNavController.m */,
-				0811BFBD1F3EBC0F000FEBB7 /* LYSSPaiViewController.h */,
-				0811BFBE1F3EBC0F000FEBB7 /* LYSSPaiViewController.m */,
+				0811BFD31F3EE595000FEBB7 /* ViewController */,
+				0811BFD51F3EE5B0000FEBB7 /* View */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -148,8 +184,9 @@
 		0811BFC91F3EC34D000FEBB7 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				0811BFC01F3EBC28000FEBB7 /* HomePageViewController.h */,
-				0811BFC11F3EBC28000FEBB7 /* HomePageViewController.m */,
+				0811BFD21F3EE579000FEBB7 /* ViewController */,
+				0811BFD11F3EE572000FEBB7 /* View */,
+				0811BFD01F3EE56A000FEBB7 /* Model */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -181,6 +218,86 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		0811BFD01F3EE56A000FEBB7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				08AEA2A31F4080A400A8F91B /* AdsModel.h */,
+				08AEA2A41F4080A400A8F91B /* AdsModel.m */,
+				08AEA2A61F4080B600A8F91B /* NewsModel.h */,
+				08AEA2A71F4080B600A8F91B /* NewsModel.m */,
+				08AEA2A91F4080CB00A8F91B /* PaidNewsModel.h */,
+				08AEA2AA1F4080CB00A8F91B /* PaidNewsModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		0811BFD11F3EE572000FEBB7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				08AEA2971F407FE200A8F91B /* AdsCell.h */,
+				08AEA2981F407FE200A8F91B /* AdsCell.m */,
+				08AEA29A1F407FF300A8F91B /* NewsCell.h */,
+				08AEA29B1F407FF300A8F91B /* NewsCell.m */,
+				08AEA29D1F40804200A8F91B /* PaidNewsCell.h */,
+				08AEA29E1F40804200A8F91B /* PaidNewsCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		0811BFD21F3EE579000FEBB7 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0811BFC01F3EBC28000FEBB7 /* HomePageViewController.h */,
+				0811BFC11F3EBC28000FEBB7 /* HomePageViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		0811BFD31F3EE595000FEBB7 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0811BFB11F3EB9EA000FEBB7 /* LYTabBarController.h */,
+				0811BFB21F3EB9EA000FEBB7 /* LYTabBarController.m */,
+				0811BFB41F3EBA03000FEBB7 /* LYNavController.h */,
+				0811BFB51F3EBA03000FEBB7 /* LYNavController.m */,
+				0811BFBD1F3EBC0F000FEBB7 /* LYSSPaiViewController.h */,
+				0811BFBE1F3EBC0F000FEBB7 /* LYSSPaiViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		0811BFD51F3EE5B0000FEBB7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0811BFCD1F3ED0DE000FEBB7 /* HeaderView.h */,
+				0811BFCE1F3ED0DE000FEBB7 /* HeaderView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		377A8602D8B960723BD97FFD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BFE6C7EFC00EAFB9DC8831DF /* Pods-LYSSPai.debug.xcconfig */,
+				D366C234FC70A18C81E460F4 /* Pods-LYSSPai.release.xcconfig */,
+				CC67453B7788386F3B9CA6AE /* Pods-LYSSPaiTests.debug.xcconfig */,
+				864C56B68E311541B809EFC3 /* Pods-LYSSPaiTests.release.xcconfig */,
+				CCD9CB26E3F88F3A35D70399 /* Pods-LYSSPaiUITests.debug.xcconfig */,
+				B65E504DFD23B15591185539 /* Pods-LYSSPaiUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		ADAFDE5A5226781F4B9793B9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D5BCCD8B222D2A11AB86D018 /* libPods-LYSSPai.a */,
+				730961651010214BB6992570 /* libPods-LYSSPaiTests.a */,
+				048BD983B929E18478DDA7BE /* libPods-LYSSPaiUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -188,9 +305,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0811BBB91F3EB3EC000FEBB7 /* Build configuration list for PBXNativeTarget "LYSSPai" */;
 			buildPhases = (
+				DAC8F9510C1D0B096A4EAD5B /* [CP] Check Pods Manifest.lock */,
 				0811BB881F3EB3EC000FEBB7 /* Sources */,
 				0811BB891F3EB3EC000FEBB7 /* Frameworks */,
 				0811BB8A1F3EB3EC000FEBB7 /* Resources */,
+				2CF0F052AE4D18A85D3B0B4D /* [CP] Embed Pods Frameworks */,
+				3298C46DF463652B22305B61 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -205,9 +325,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0811BBBC1F3EB3EC000FEBB7 /* Build configuration list for PBXNativeTarget "LYSSPaiTests" */;
 			buildPhases = (
+				DC8D3494A773708B9F61033E /* [CP] Check Pods Manifest.lock */,
 				0811BBA11F3EB3EC000FEBB7 /* Sources */,
 				0811BBA21F3EB3EC000FEBB7 /* Frameworks */,
 				0811BBA31F3EB3EC000FEBB7 /* Resources */,
+				1325B1D08519645C3241DEAD /* [CP] Embed Pods Frameworks */,
+				93EB09D83D4772B83233B0B2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -223,9 +346,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0811BBBF1F3EB3EC000FEBB7 /* Build configuration list for PBXNativeTarget "LYSSPaiUITests" */;
 			buildPhases = (
+				0E7747B36FDEA194AA6A1013 /* [CP] Check Pods Manifest.lock */,
 				0811BBAC1F3EB3EC000FEBB7 /* Sources */,
 				0811BBAD1F3EB3EC000FEBB7 /* Frameworks */,
 				0811BBAE1F3EB3EC000FEBB7 /* Resources */,
+				2E9CC2913BD86981934C4C8D /* [CP] Embed Pods Frameworks */,
+				A96F0162CE09252102D403BE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -311,18 +437,163 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0E7747B36FDEA194AA6A1013 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		1325B1D08519645C3241DEAD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LYSSPaiTests/Pods-LYSSPaiTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2CF0F052AE4D18A85D3B0B4D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LYSSPai/Pods-LYSSPai-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2E9CC2913BD86981934C4C8D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LYSSPaiUITests/Pods-LYSSPaiUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3298C46DF463652B22305B61 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LYSSPai/Pods-LYSSPai-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		93EB09D83D4772B83233B0B2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LYSSPaiTests/Pods-LYSSPaiTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A96F0162CE09252102D403BE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LYSSPaiUITests/Pods-LYSSPaiUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DAC8F9510C1D0B096A4EAD5B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DC8D3494A773708B9F61033E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0811BB881F3EB3EC000FEBB7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				0811BB941F3EB3EC000FEBB7 /* AppDelegate.m in Sources */,
+				0811BFCF1F3ED0DE000FEBB7 /* HeaderView.m in Sources */,
+				08AEA29C1F407FF300A8F91B /* NewsCell.m in Sources */,
+				08AEA29F1F40804200A8F91B /* PaidNewsCell.m in Sources */,
 				0811BFB31F3EB9EA000FEBB7 /* LYTabBarController.m in Sources */,
 				0811BFB61F3EBA03000FEBB7 /* LYNavController.m in Sources */,
+				08AEA2AB1F4080CB00A8F91B /* PaidNewsModel.m in Sources */,
 				0811BFC51F3EBC37000FEBB7 /* FoundViewController.m in Sources */,
 				0811BB911F3EB3EC000FEBB7 /* main.m in Sources */,
 				0811BFC21F3EBC28000FEBB7 /* HomePageViewController.m in Sources */,
 				0811BFC81F3EBC55000FEBB7 /* MessageViewController.m in Sources */,
+				08AEA2A81F4080B600A8F91B /* NewsModel.m in Sources */,
+				08AEA2A51F4080A400A8F91B /* AdsModel.m in Sources */,
+				08AEA2991F407FE200A8F91B /* AdsCell.m in Sources */,
 				0811BFBF1F3EBC0F000FEBB7 /* LYSSPaiViewController.m in Sources */,
 				0811BFBC1F3EBA72000FEBB7 /* LoginPageViewController.m in Sources */,
 			);
@@ -463,9 +734,12 @@
 		};
 		0811BBBA1F3EB3EC000FEBB7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BFE6C7EFC00EAFB9DC8831DF /* Pods-LYSSPai.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = V2GC55R3DL;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/LYSSPai/PrefixHeader.pch";
 				INFOPLIST_FILE = LYSSPai/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = halohily.com.LYSSPai;
@@ -475,9 +749,12 @@
 		};
 		0811BBBB1F3EB3EC000FEBB7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D366C234FC70A18C81E460F4 /* Pods-LYSSPai.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = V2GC55R3DL;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/LYSSPai/PrefixHeader.pch";
 				INFOPLIST_FILE = LYSSPai/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = halohily.com.LYSSPai;
@@ -487,6 +764,7 @@
 		};
 		0811BBBD1F3EB3EC000FEBB7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC67453B7788386F3B9CA6AE /* Pods-LYSSPaiTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = V2GC55R3DL;
@@ -500,6 +778,7 @@
 		};
 		0811BBBE1F3EB3EC000FEBB7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 864C56B68E311541B809EFC3 /* Pods-LYSSPaiTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = V2GC55R3DL;
@@ -513,6 +792,7 @@
 		};
 		0811BBC01F3EB3EC000FEBB7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCD9CB26E3F88F3A35D70399 /* Pods-LYSSPaiUITests.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = V2GC55R3DL;
 				INFOPLIST_FILE = LYSSPaiUITests/Info.plist;
@@ -525,6 +805,7 @@
 		};
 		0811BBC11F3EB3EC000FEBB7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B65E504DFD23B15591185539 /* Pods-LYSSPaiUITests.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = V2GC55R3DL;
 				INFOPLIST_FILE = LYSSPaiUITests/Info.plist;

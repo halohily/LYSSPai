@@ -7,7 +7,7 @@
 //
 
 #import "FoundViewController.h"
-
+#import "HeaderView.h"
 @interface FoundViewController ()
 
 @end
@@ -16,6 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    HeaderView *header = [[HeaderView alloc] initWithTitle:@"发现" Button:@"nav_but_search_20x20_"];
+    [self.view addSubview:header];
     // Do any additional setup after loading the view.
 }
 

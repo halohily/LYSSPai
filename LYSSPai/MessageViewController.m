@@ -7,7 +7,7 @@
 //
 
 #import "MessageViewController.h"
-
+#import "HeaderView.h"
 @interface MessageViewController ()
 
 @end
@@ -16,6 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    HeaderView *header = [[HeaderView alloc] initWithTitle:@"消息" Button:NULL];
+    [self.view addSubview:header];
+
     // Do any additional setup after loading the view.
 }
 

@@ -13,6 +13,7 @@
 
 @optional
 - (void)menuButtonClickedWithID:(NSString *)articleID;
+- (void)swipeLeft;
 
 @end
 @interface NewsCell : UITableViewCell

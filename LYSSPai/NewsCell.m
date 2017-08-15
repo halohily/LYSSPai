@@ -9,7 +9,7 @@
 #import "NewsCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
-@interface NewsCell()
+@interface NewsCell() <UIGestureRecognizerDelegate>
 
 @property (nonatomic, weak) UIImageView *avator;
 @property (nonatomic, weak) UILabel *nickname;
@@ -160,6 +160,10 @@
     timeLabel.textColor = UIColor(208, 208, 208);
     self.postTime = timeLabel;
     
+    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeLeft)];
+    swipe.delegate = self;
+    swipe.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.contentView addGestureRecognizer:swipe];
 }
 - (void)setModel:(NewsModel *)model
 {
@@ -186,5 +190,19 @@
     {
         [self.delegate menuButtonClickedWithID:self.model.articleID];
     }
+}
+
+- (void)swipeLeft
+{
+    NSLog(@"swipe left");
+    if([self.delegate respondsToSelector:@selector(swipeLeft)])
+    {
+        [self.delegate swipeLeft];
+    }
+}
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    return YES;
 }
 @end

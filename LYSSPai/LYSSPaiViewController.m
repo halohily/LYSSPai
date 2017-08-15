@@ -8,7 +8,7 @@
 
 #import "LYSSPaiViewController.h"
 
-@interface LYSSPaiViewController ()
+@interface LYSSPaiViewController ()<UIGestureRecognizerDelegate>
 
 @end
 
@@ -18,6 +18,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
+//    id target = self.navigationController.interactivePopGestureRecognizer.delegate;
+//    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:target action:@selector(handleNavigationTransition:)];
+//    pan.delegate = self;
+//    [self.view addGestureRecognizer:pan];
+//    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,6 +34,11 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     self.navigationController.navigationBar.hidden = YES;
+}
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    return YES;
 }
 /*
 #pragma mark - Navigation

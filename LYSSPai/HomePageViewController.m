@@ -17,6 +17,7 @@
 #import "TBActionSheet.h"
 #import "MJRefresh.h"
 #import "MBProgressHUD.h"
+#import "ClassedController.h"
 
 @interface HomePageViewController ()
 <UIScrollViewDelegate,
@@ -274,6 +275,11 @@ PaidNewsCellDelegate>
     [self.actionSheet show];
 }
 
+- (void)swipeLeft
+{
+    ClassedController *classVC = [[ClassedController alloc] init];
+    [self.navigationController pushViewController:classVC animated:YES];
+}
 #pragma mark AdsCell delegate
 - (void)adsCellTappedByTag:(NSInteger)tag
 {
@@ -289,5 +295,12 @@ PaidNewsCellDelegate>
 - (void)moreClicked
 {
     
+}
+
+#pragma mark headview delgegate
+- (void)BtnClicked
+{
+    ClassedController *classVC = [[ClassedController alloc] init];
+    [self.navigationController pushViewController:classVC animated:YES];
 }
 @end

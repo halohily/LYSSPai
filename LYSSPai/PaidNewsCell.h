@@ -9,8 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "PaidNewsModel.h"
 
+@protocol PaidNewsCellDelegate <NSObject>
+
+@optional
+- (void)moreClicked;
+- (void)paidNewsTappedByTag:(NSInteger)tag;
+
+@end
 @interface PaidNewsCell : UITableViewCell
 
+@property (nonatomic, weak) id <PaidNewsCellDelegate> delegate;
 @property (nonatomic, strong) PaidNewsModel *model;
 
 + (instancetype)cellWithPaidNewsModel:(PaidNewsModel *)model;

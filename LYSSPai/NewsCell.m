@@ -168,8 +168,8 @@
     self.nickname.text = model.nickname;
     self.articleTitle.text = model.title;
     [self.banner sd_setImageWithURL:[NSURL URLWithString:model.banner]];
-    NSLog(@"screen width %f", LYScreenWidth);
-    NSLog(@"length::: %ld", model.summary.length);
+//    NSLog(@"screen width %f", LYScreenWidth);
+//    NSLog(@"length::: %ld", model.summary.length);
     if((float)model.summary.length/LYScreenWidth > 0.11)
     {
         NSString *temStr = [model.summary substringToIndex:(int)(LYScreenWidth * 0.11)];
@@ -182,6 +182,9 @@
 
 - (void)menuClicked
 {
-    NSLog(@"ssss");
+    if([self.delegate respondsToSelector:@selector(menuButtonClickedWithID:)])
+    {
+        [self.delegate menuButtonClickedWithID:self.model.articleID];
+    }
 }
 @end

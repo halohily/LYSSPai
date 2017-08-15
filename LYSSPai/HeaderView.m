@@ -38,7 +38,7 @@
 //            以字号为36和20计算得出的临界Y值为-97和-130，根据此刻Y值计算此时的字号
             CGFloat fontSize = (-((16.0 * Y)/33.0)) - 892.0/33.0;
             self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:fontSize];
-            NSLog(@"point:: %f",self.titleLabel.font.pointSize);
+//            NSLog(@"point:: %f",self.titleLabel.font.pointSize);
 //            更新titlelabel的高度约束
             [self.titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.height.mas_equalTo(self.titleLabel.font.pointSize + 0.5);

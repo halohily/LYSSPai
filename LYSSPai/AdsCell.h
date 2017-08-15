@@ -9,8 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "AdsModel.h"
 
+@protocol AdsCellDelegate <NSObject>
+
+@optional
+- (void)adsCellTappedByTag:(NSInteger)tag;
+
+@end
+
 @interface AdsCell : UITableViewCell
 
+@property (nonatomic, weak) id <AdsCellDelegate> delegate;
 @property (nonatomic, strong) AdsModel *model;
 
 + (instancetype)cellWithAdsModel:(AdsModel *)model;

@@ -9,9 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "NewsModel.h"
 
+@protocol NewsCellDelegate <NSObject>
+
+@optional
+- (void)menuButtonClickedWithID:(NSString *)articleID;
+
+@end
 @interface NewsCell : UITableViewCell
 
 @property (nonatomic, strong) NewsModel *model;
+@property (nonatomic, weak) id<NewsCellDelegate> delegate;
 
 + (instancetype)cellWithTableView:(UITableView *)tableview NewsModel:(NewsModel *)model;
 

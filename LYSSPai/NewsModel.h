@@ -18,6 +18,7 @@
 @property (nonatomic, copy) NSString *comment_total;
 @property (nonatomic, copy) NSString *like_total;
 @property (nonatomic, copy) NSString *released_at;
+@property (nonatomic, copy) NSString *articleID;
 
 + (instancetype)NewsModelWithDic:(NSDictionary *)dic;
 

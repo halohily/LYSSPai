@@ -75,7 +75,7 @@
 #pragma mark scrollView delegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    NSLog(@"scroll::%f",scrollView.contentOffset.y);
+//    NSLog(@"scroll::%f",scrollView.contentOffset.y);
     [self.headerView viewScrolledByY:scrollView.contentOffset.y];
 }
 

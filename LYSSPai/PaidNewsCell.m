@@ -130,6 +130,9 @@
             updateInfo.text = [NSString stringWithFormat:@"已经更新至第%@期", update_total];
         }
         [backScrollView addSubview:paidNewsView];
+        paidNewsView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(paidViewDidSelect:)];
+        [paidNewsView addGestureRecognizer:tap];
     }
 }
 
@@ -140,7 +143,19 @@
 
 - (void)moreBtnClicked
 {
-    
+    if ([self.delegate respondsToSelector:@selector(moreClicked)])
+    {
+        [self.delegate moreClicked];
+    }
+}
+
+- (void)paidViewDidSelect:(UITapGestureRecognizer *)sender
+{
+    NSLog(@"adsView tapper: %ld", sender.view.tag);
+    if ([self.delegate respondsToSelector:@selector(paidNewsTappedByTag:)])
+    {
+        [self.delegate paidNewsTappedByTag:sender.view.tag];
+    }
 }
 
 @end

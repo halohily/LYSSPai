@@ -33,6 +33,8 @@
 		08AEA2B51F41C48A00A8F91B /* find.json in Resources */ = {isa = PBXBuildFile; fileRef = 08AEA2B41F41C48900A8F91B /* find.json */; };
 		08AEA2BB1F41C54700A8F91B /* FindCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA2BA1F41C54700A8F91B /* FindCell.m */; };
 		08AEA2BE1F41C55B00A8F91B /* FindModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA2BD1F41C55B00A8F91B /* FindModel.m */; };
+		08AEA2C01F42A98300A8F91B /* news_refresh.json in Resources */ = {isa = PBXBuildFile; fileRef = 08AEA2BF1F42A98300A8F91B /* news_refresh.json */; };
+		08AEA2C21F42AC8E00A8F91B /* refresh.json in Resources */ = {isa = PBXBuildFile; fileRef = 08AEA2C11F42AC8E00A8F91B /* refresh.json */; };
 		0DBA4869A74FAABB15C4AEA7 /* libPods-LYSSPai.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BCCD8B222D2A11AB86D018 /* libPods-LYSSPai.a */; };
 		D791D3A324B2219776500FFB /* libPods-LYSSPaiUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 048BD983B929E18478DDA7BE /* libPods-LYSSPaiUITests.a */; };
 /* End PBXBuildFile section */
@@ -103,6 +105,8 @@
 		08AEA2BA1F41C54700A8F91B /* FindCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindCell.m; sourceTree = "<group>"; };
 		08AEA2BC1F41C55B00A8F91B /* FindModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindModel.h; sourceTree = "<group>"; };
 		08AEA2BD1F41C55B00A8F91B /* FindModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindModel.m; sourceTree = "<group>"; };
+		08AEA2BF1F42A98300A8F91B /* news_refresh.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = news_refresh.json; path = ../news_refresh.json; sourceTree = "<group>"; };
+		08AEA2C11F42AC8E00A8F91B /* refresh.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = refresh.json; path = ../refresh.json; sourceTree = "<group>"; };
 		730961651010214BB6992570 /* libPods-LYSSPaiTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LYSSPaiTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		864C56B68E311541B809EFC3 /* Pods-LYSSPaiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LYSSPaiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LYSSPaiTests/Pods-LYSSPaiTests.release.xcconfig"; sourceTree = "<group>"; };
 		B65E504DFD23B15591185539 /* Pods-LYSSPaiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LYSSPaiUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LYSSPaiUITests/Pods-LYSSPaiUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -171,6 +175,8 @@
 				0811BFCC1F3EC361000FEBB7 /* Login */,
 				0811BB9B1F3EB3EC000FEBB7 /* Assets.xcassets */,
 				0811BB9D1F3EB3EC000FEBB7 /* LaunchScreen.storyboard */,
+				08AEA2C11F42AC8E00A8F91B /* refresh.json */,
+				08AEA2BF1F42A98300A8F91B /* news_refresh.json */,
 				08AEA2B41F41C48900A8F91B /* find.json */,
 				08AEA2AC1F41A87800A8F91B /* newsData.json */,
 				08AEA2AE1F41B48800A8F91B /* adsData.json */,
@@ -466,9 +472,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				08AEA2B51F41C48A00A8F91B /* find.json in Resources */,
+				08AEA2C21F42AC8E00A8F91B /* refresh.json in Resources */,
 				0811BB9F1F3EB3EC000FEBB7 /* LaunchScreen.storyboard in Resources */,
 				08AEA2B21F41B48800A8F91B /* paidNewsData.json in Resources */,
 				08AEA2AD1F41A87800A8F91B /* newsData.json in Resources */,
+				08AEA2C01F42A98300A8F91B /* news_refresh.json in Resources */,
 				08AEA2B31F41B48800A8F91B /* newsData2.json in Resources */,
 				08AEA2B11F41B48800A8F91B /* adsData.json in Resources */,
 				0811BB9C1F3EB3EC000FEBB7 /* Assets.xcassets in Resources */,

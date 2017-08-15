@@ -22,6 +22,7 @@
     NSMutableDictionary *author = dic[@"author"];
     model.avator = author[@"avatar"];
     model.nickname = author[@"nickname"];
+    model.articleID = dic[@"id"];
     return model;
 }
 @end

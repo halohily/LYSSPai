@@ -44,9 +44,14 @@
         AdsView.frame = CGRectMake(0, 0, LYScreenWidth - 50, (LYScreenWidth - 50) * 0.53125);
         AdsView.layer.cornerRadius = 5.0;
         AdsView.layer.masksToBounds = YES;
+//        打开imageview的交互响应开关
+        AdsView.userInteractionEnabled = YES;
         [AdsView sd_setImageWithURL:[NSURL URLWithString:self.model.AdsData[i][@"image"]]];
         AdsView.tag = i;
         [shadowView addSubview:AdsView];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(AdsViewDidSelect:)];
+        [AdsView addGestureRecognizer:tap];
+        
         [self.backScrollView addSubview:shadowView];
     }
 }
@@ -56,8 +61,12 @@
     _model = model;
 }
 
-- (void)AdsViewDidSelect:(UIButton *)button
+- (void)AdsViewDidSelect:(UITapGestureRecognizer *)sender
 {
-    
+    NSLog(@"adsView tapper: %ld",sender.view.tag);
+    if ([self.delegate respondsToSelector:@selector(adsCellTappedByTag:)])
+    {
+        [self.delegate adsCellTappedByTag:sender.view.tag];
+    }
 }
 @end

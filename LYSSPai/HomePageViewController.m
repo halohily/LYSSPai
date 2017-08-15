@@ -17,7 +17,9 @@
 #import "TBActionSheet.h"
 #import "MJRefresh.h"
 #import "MBProgressHUD.h"
-#import "ClassedController.h"
+#import "ClassedViewController.h"
+#import "NewsReadModel.h"
+#import "NewsReadController.h"
 
 @interface HomePageViewController ()
 <UIScrollViewDelegate,
@@ -265,6 +267,19 @@ PaidNewsCellDelegate>
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"第%ld个cell被点击",(long)indexPath.row);
+    NewsModel *newsModel = [[NewsModel alloc] init];
+    if (indexPath.row == 1)
+    {
+        newsModel = self.newsData[0];
+    }
+    else
+    {
+        newsModel = self.newsData[indexPath.row - 2];
+    }
+    NSDictionary *dic = @{@"like_total":newsModel.like_total, @"comment_total": newsModel.comment_total, @"newsURL": @"https://sspai.com/post/40263", @"newsID": newsModel.articleID};
+    NewsReadModel *model = [NewsReadModel NewsReadModelWithDic:dic];
+    NewsReadController *readVC = [[NewsReadController alloc] initWithModel:model];
+    [self.navigationController pushViewController:readVC animated:YES];
 }
 
 #pragma mark NewsCell delegate
@@ -277,7 +292,7 @@ PaidNewsCellDelegate>
 
 - (void)swipeLeft
 {
-    ClassedController *classVC = [[ClassedController alloc] init];
+    ClassedViewController *classVC = [[ClassedViewController alloc] init];
     [self.navigationController pushViewController:classVC animated:YES];
 }
 #pragma mark AdsCell delegate
@@ -300,7 +315,7 @@ PaidNewsCellDelegate>
 #pragma mark headview delgegate
 - (void)BtnClicked
 {
-    ClassedController *classVC = [[ClassedController alloc] init];
+    ClassedViewController *classVC = [[ClassedViewController alloc] init];
     [self.navigationController pushViewController:classVC animated:YES];
 }
 @end

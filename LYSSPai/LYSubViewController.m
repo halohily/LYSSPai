@@ -1,23 +1,26 @@
 //
-//  LYSSPaiViewController.m
+//  LYSubViewController.m
 //  LYSSPai
 //
-//  Created by 刘毅 on 2017/8/12.
+//  Created by 刘毅 on 2017/8/15.
 //  Copyright © 2017年 halohily.com. All rights reserved.
 //
 
-#import "LYSSPaiViewController.h"
+#import "LYSubViewController.h"
 
-@interface LYSSPaiViewController ()
+@interface LYSubViewController ()<UIGestureRecognizerDelegate>
 
 @end
 
-@implementation LYSSPaiViewController
+@implementation LYSubViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor whiteColor];
+    //    解决右划返回手势失效
+    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(goBack)];
+    swipe.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:swipe];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -25,10 +28,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    self.navigationController.navigationBar.hidden = YES;
-}
 /*
 #pragma mark - Navigation
 

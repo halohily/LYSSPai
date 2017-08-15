@@ -1,19 +1,20 @@
 //
-//  ClassedController.m
+//  ClassedViewController.m
 //  LYSSPai
 //
 //  Created by 刘毅 on 2017/8/15.
 //  Copyright © 2017年 halohily.com. All rights reserved.
 //
 
-#import "ClassedController.h"
+#import "ClassedViewController.h"
 
-@interface ClassedController ()
+@interface ClassedViewController ()
+
 @property (nonatomic, strong) NSArray *datas;
 
 @end
 
-@implementation ClassedController
+@implementation ClassedViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -60,8 +61,8 @@
     matrix.titleLabel.font = [UIFont systemFontOfSize:18.0];
     matrix.tag = 6;
     [matrix addTarget:self action:@selector(pushToClass:) forControlEvents:UIControlEventTouchUpInside];
-    
 }
+
 - (void)setListBtnWithArr:(NSArray *)datas
 {
     int i = 0;

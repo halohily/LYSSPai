@@ -39,6 +39,7 @@
 		08AEA2CE1F42DCEA00A8F91B /* ClassedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA2CD1F42DCEA00A8F91B /* ClassedViewController.m */; };
 		08AEA2D11F42DDC200A8F91B /* NewsReadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA2D01F42DDC200A8F91B /* NewsReadController.m */; };
 		08AEA2D41F42DE3B00A8F91B /* NewsReadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA2D31F42DE3B00A8F91B /* NewsReadModel.m */; };
+		08AEA2DC1F43225F00A8F91B /* LYSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA2DB1F43225F00A8F91B /* LYSelectView.m */; };
 		0DBA4869A74FAABB15C4AEA7 /* libPods-LYSSPai.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BCCD8B222D2A11AB86D018 /* libPods-LYSSPai.a */; };
 		D791D3A324B2219776500FFB /* libPods-LYSSPaiUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 048BD983B929E18478DDA7BE /* libPods-LYSSPaiUITests.a */; };
 /* End PBXBuildFile section */
@@ -119,6 +120,8 @@
 		08AEA2D01F42DDC200A8F91B /* NewsReadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsReadController.m; sourceTree = "<group>"; };
 		08AEA2D21F42DE3B00A8F91B /* NewsReadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsReadModel.h; sourceTree = "<group>"; };
 		08AEA2D31F42DE3B00A8F91B /* NewsReadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsReadModel.m; sourceTree = "<group>"; };
+		08AEA2DA1F43225F00A8F91B /* LYSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYSelectView.h; sourceTree = "<group>"; };
+		08AEA2DB1F43225F00A8F91B /* LYSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYSelectView.m; sourceTree = "<group>"; };
 		730961651010214BB6992570 /* libPods-LYSSPaiTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LYSSPaiTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		864C56B68E311541B809EFC3 /* Pods-LYSSPaiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LYSSPaiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LYSSPaiTests/Pods-LYSSPaiTests.release.xcconfig"; sourceTree = "<group>"; };
 		B65E504DFD23B15591185539 /* Pods-LYSSPaiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LYSSPaiUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LYSSPaiUITests/Pods-LYSSPaiUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -180,6 +183,7 @@
 		0811BB8E1F3EB3EC000FEBB7 /* LYSSPai */ = {
 			isa = PBXGroup;
 			children = (
+				08AEA2D61F431B1500A8F91B /* data */,
 				0811BFB01F3EB9BF000FEBB7 /* Main */,
 				0811BFC91F3EC34D000FEBB7 /* Home */,
 				0811BFCA1F3EC353000FEBB7 /* Found */,
@@ -187,13 +191,6 @@
 				0811BFCC1F3EC361000FEBB7 /* Login */,
 				0811BB9B1F3EB3EC000FEBB7 /* Assets.xcassets */,
 				0811BB9D1F3EB3EC000FEBB7 /* LaunchScreen.storyboard */,
-				08AEA2C11F42AC8E00A8F91B /* refresh.json */,
-				08AEA2BF1F42A98300A8F91B /* news_refresh.json */,
-				08AEA2B41F41C48900A8F91B /* find.json */,
-				08AEA2AC1F41A87800A8F91B /* newsData.json */,
-				08AEA2AE1F41B48800A8F91B /* adsData.json */,
-				08AEA2AF1F41B48800A8F91B /* paidNewsData.json */,
-				08AEA2B01F41B48800A8F91B /* newsData2.json */,
 				0811BBA01F3EB3EC000FEBB7 /* Info.plist */,
 				0811BB8F1F3EB3EC000FEBB7 /* Supporting Files */,
 				0811BFD61F3EEB82000FEBB7 /* PrefixHeader.pch */,
@@ -243,8 +240,9 @@
 		0811BFCB1F3EC35A000FEBB7 /* Message */ = {
 			isa = PBXGroup;
 			children = (
-				0811BFC61F3EBC55000FEBB7 /* MessageViewController.h */,
-				0811BFC71F3EBC55000FEBB7 /* MessageViewController.m */,
+				08AEA2D91F43223900A8F91B /* Model */,
+				08AEA2D81F43222F00A8F91B /* ViewController */,
+				08AEA2D71F43222900A8F91B /* View */,
 			);
 			name = Message;
 			sourceTree = "<group>";
@@ -346,6 +344,45 @@
 			children = (
 				08AEA2BC1F41C55B00A8F91B /* FindModel.h */,
 				08AEA2BD1F41C55B00A8F91B /* FindModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		08AEA2D61F431B1500A8F91B /* data */ = {
+			isa = PBXGroup;
+			children = (
+				08AEA2C11F42AC8E00A8F91B /* refresh.json */,
+				08AEA2BF1F42A98300A8F91B /* news_refresh.json */,
+				08AEA2B41F41C48900A8F91B /* find.json */,
+				08AEA2AC1F41A87800A8F91B /* newsData.json */,
+				08AEA2AE1F41B48800A8F91B /* adsData.json */,
+				08AEA2AF1F41B48800A8F91B /* paidNewsData.json */,
+				08AEA2B01F41B48800A8F91B /* newsData2.json */,
+			);
+			name = data;
+			sourceTree = "<group>";
+		};
+		08AEA2D71F43222900A8F91B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				08AEA2DA1F43225F00A8F91B /* LYSelectView.h */,
+				08AEA2DB1F43225F00A8F91B /* LYSelectView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		08AEA2D81F43222F00A8F91B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0811BFC61F3EBC55000FEBB7 /* MessageViewController.h */,
+				0811BFC71F3EBC55000FEBB7 /* MessageViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		08AEA2D91F43223900A8F91B /* Model */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -678,6 +715,7 @@
 				0811BFC21F3EBC28000FEBB7 /* HomePageViewController.m in Sources */,
 				0811BFC81F3EBC55000FEBB7 /* MessageViewController.m in Sources */,
 				08AEA2A81F4080B600A8F91B /* NewsModel.m in Sources */,
+				08AEA2DC1F43225F00A8F91B /* LYSelectView.m in Sources */,
 				08AEA2A51F4080A400A8F91B /* AdsModel.m in Sources */,
 				08AEA2991F407FE200A8F91B /* AdsCell.m in Sources */,
 				08AEA2D41F42DE3B00A8F91B /* NewsReadModel.m in Sources */,

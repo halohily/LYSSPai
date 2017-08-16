@@ -129,7 +129,7 @@ PaidNewsCellDelegate>
     return _actionSheet;
 }
 
-#pragma mark private methods
+#pragma mark - private methods
 //下拉刷新
 - (void)dropDownToRefresh
 {
@@ -180,7 +180,7 @@ PaidNewsCellDelegate>
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark scrollView delegate
+#pragma mark - scrollView delegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
 //    输出scrollview的content offset Y值，调试时取消注释
@@ -188,7 +188,7 @@ PaidNewsCellDelegate>
     [self.headerView viewScrolledByY:scrollView.contentOffset.y];
 }
 
-#pragma mark tableview delegate
+#pragma mark - tableview delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0)
@@ -282,7 +282,7 @@ PaidNewsCellDelegate>
     [self.navigationController pushViewController:readVC animated:YES];
 }
 
-#pragma mark NewsCell delegate
+#pragma mark - NewsCell delegate
 - (void)menuButtonClickedWithID:(NSString *)articleID
 {
     NSLog(@"文章cell中的菜单按钮被点击，文章id为：%@", articleID);
@@ -295,13 +295,13 @@ PaidNewsCellDelegate>
     ClassedViewController *classVC = [[ClassedViewController alloc] init];
     [self.navigationController pushViewController:classVC animated:YES];
 }
-#pragma mark AdsCell delegate
+#pragma mark - AdsCell delegate
 - (void)adsCellTappedByTag:(NSInteger)tag
 {
     
 }
 
-#pragma mark PaidCell delegate
+#pragma mark - PaidCell delegate
 - (void)paidNewsTappedByTag:(NSInteger)tag
 {
     
@@ -312,7 +312,7 @@ PaidNewsCellDelegate>
     
 }
 
-#pragma mark headview delgegate
+#pragma mark - headview delgegate
 - (void)BtnClicked
 {
     ClassedViewController *classVC = [[ClassedViewController alloc] init];

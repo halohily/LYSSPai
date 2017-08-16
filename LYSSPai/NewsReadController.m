@@ -67,7 +67,7 @@
         make.top.mas_equalTo(toolBar.mas_top).with.offset(0);
         make.height.mas_equalTo(SINGLE_LINE_WIDTH);
     }];
-    line.backgroundColor = UIColor(190, 190, 190);
+    line.backgroundColor = LYLineGray;
 //    返回按钮
     UIButton *back = [[UIButton alloc] init];
     [toolBar addSubview:back];

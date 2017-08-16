@@ -9,7 +9,7 @@
 #import "NewsCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
-@interface NewsCell() <UIGestureRecognizerDelegate>
+@interface NewsCell()
 
 @property (nonatomic, weak) UIImageView *avator;
 @property (nonatomic, weak) UILabel *nickname;
@@ -161,7 +161,7 @@
     self.postTime = timeLabel;
     
     UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeLeft)];
-    swipe.delegate = self;
+    swipe.delaysTouchesBegan = YES;
     swipe.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.contentView addGestureRecognizer:swipe];
 }
@@ -201,8 +201,4 @@
     }
 }
 
-- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
-{
-    return YES;
-}
 @end

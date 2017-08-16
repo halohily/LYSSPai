@@ -22,6 +22,7 @@
 //快捷颜色
 #define UIColor(r, g, b) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:1]
 #define LYNavGray UIColor(170, 160, 160)
+#define LYLineGray UIColor(190, 190, 190)
 //物理1像素
 #define SINGLE_LINE_WIDTH           (1 / [UIScreen mainScreen].scale)
 

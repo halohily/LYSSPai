@@ -45,9 +45,9 @@
     backScrollView.showsVerticalScrollIndicator = NO;
     backScrollView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:backScrollView];
-//    为selectview和headview留出位置
+////    为selectview和headview留出位置
     backScrollView.contentInset = UIEdgeInsetsMake(140, 0, 0, 0);
-    backScrollView.contentSize = CGSizeMake(0, LYScreenHeight - 64);
+    backScrollView.contentSize = CGSizeMake(0, LYScreenHeight + 50);
     backScrollView.delegate = self;
     self.backView = backScrollView;
     
@@ -72,14 +72,14 @@
     self.contentView = content;
     [backScrollView addSubview:content];
     
-    UILabel *notice = [[UILabel alloc] initWithFrame:CGRectMake(0, 140, LYScreenWidth, 20)];
+    UILabel *notice = [[UILabel alloc] initWithFrame:CGRectMake(0, 120, LYScreenWidth, 20)];
     [content addSubview:notice];
     notice.textAlignment = NSTextAlignmentCenter;
     notice.textColor = UIColor(170, 170, 170);
     notice.font = [UIFont systemFontOfSize:16.0];
     notice.text = @"请登录以查看消息";
     
-    UILabel *notice2 = [[UILabel alloc] initWithFrame:CGRectMake(LYScreenWidth, 140, LYScreenWidth, 20)];
+    UILabel *notice2 = [[UILabel alloc] initWithFrame:CGRectMake(LYScreenWidth, 120, LYScreenWidth, 20)];
     [content addSubview:notice2];
     notice2.textAlignment = NSTextAlignmentCenter;
     notice2.textColor = UIColor(170, 170, 170);
@@ -99,9 +99,11 @@
         [self.selectView viewScrolledByY:scrollView.contentOffset.y];
         return;
     }
-
+    if (scrollView == self.contentView)
+    {
+        NSLog(@"scroll %f",scrollView.contentOffset.x);
+    }
 }
-
 //停止拖拽时的代理
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
@@ -135,16 +137,42 @@
         }
         [self contentViewScrollAnimation];
     }
-//    if (scrollView == self.backView)
-//    {
-//        [self.backView setContentOffset:CGPointMake(0, -140)];
+    if (scrollView == self.backView)
+    {
+        if (scrollView.contentOffset.y > -140)
+        {
+            [UIView animateWithDuration:0.3 animations:^{
+                [self.backView setContentOffset:CGPointMake(0, -140)];
+            }];
+        }
+    }
+
+}
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    if (scrollView == self.backView)
+    {
+//        NSLog(@"when decelerate ends Y :: %f",scrollView.contentOffset.y);
+////        NSLog(@"when scrolling ends Y :: %f",scrollView.contentOffset.y);
+//        [UIView animateWithDuration:0.0 animations:^{
+//            [self.backView setContentOffset:CGPointMake(0, 0)];
+//        }];
 //        [self.headerView viewScrolledByY:-140];
-//        [UIView animateWithDuration:0.3 animations:^{
+//        [UIView animateWithDuration:1.0 animations:^{
+//            self.headerView.frame = CGRectMake(0, 0, LYScreenWidth, 100);
+//        }];
+//        [UIView animateWithDuration:1.0 animations:^{
 //            [self.selectView viewScrolledByY:-100];
 //        }];
-//    }
+    }
 }
-
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+{
+    NSLog(@"scroll end");
+    if (scrollView == self.backView)
+    {
+    }
+}
 //内容页进行移动的封装
 - (void)contentViewScrollAnimation
 {

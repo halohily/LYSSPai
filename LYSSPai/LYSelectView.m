@@ -30,6 +30,7 @@
 {
     self.backgroundColor = [UIColor whiteColor];
 //    通知按钮
+
     UIButton *notification = [[UIButton alloc] init];
     [self addSubview:notification];
     [notification mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -140,13 +141,13 @@
 }
 - (void)viewScrolledByY:(CGFloat)Y
 {
-    if (Y < 0)
+    if (Y < -40)
     {
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.frame = CGRectMake(0, -Y, LYScreenWidth, 64);
+            self.frame = CGRectMake(0, -40 - Y, LYScreenWidth, 64);
         });
     }
-    if (Y >= 0)
+    if (Y >= -40)
     {
         self.frame = CGRectMake(0, 0, LYScreenWidth, 64);
     }

@@ -21,6 +21,8 @@
 #import "NewsReadModel.h"
 #import "NewsReadController.h"
 
+#import "SFSafariViewController+TabbarSetting.h"
+
 @interface HomePageViewController ()
 <UIScrollViewDelegate,
 HeaderViewDelegate,
@@ -29,7 +31,8 @@ UITableViewDataSource,
 TBActionSheetDelegate,
 NewsCellDelegate,
 AdsCellDelegate,
-PaidNewsCellDelegate>
+PaidNewsCellDelegate,
+SFSafariViewControllerDelegate>
 
 @property (nonatomic, strong) HeaderView *headerView;
 @property (nonatomic, strong) UITableView *newsTableView;
@@ -298,7 +301,20 @@ PaidNewsCellDelegate>
 #pragma mark - AdsCell delegate
 - (void)adsCellTappedByTag:(NSInteger)tag
 {
-    
+    if (tag == 0 || tag == 1)
+    {
+        SFSafariViewController *safari = [[SFSafariViewController alloc] initSFWithURL:[NSURL URLWithString:@"https://www.apple.com/cn/"]];
+        safari.delegate = self;
+        [self.navigationController pushViewController:safari animated:YES];
+    }
+    else
+    {
+        NewsModel *newsModel = self.newsData[0];
+        NSDictionary *dic = @{@"like_total":newsModel.like_total, @"comment_total": newsModel.comment_total, @"newsURL": @"https://sspai.com/post/40263", @"newsID": newsModel.articleID};
+        NewsReadModel *model = [NewsReadModel NewsReadModelWithDic:dic];
+        NewsReadController *readVC = [[NewsReadController alloc] initWithModel:model];
+        [self.navigationController pushViewController:readVC animated:YES];
+    }
 }
 
 #pragma mark - PaidCell delegate
@@ -317,5 +333,10 @@ PaidNewsCellDelegate>
 {
     ClassedViewController *classVC = [[ClassedViewController alloc] init];
     [self.navigationController pushViewController:classVC animated:YES];
+}
+
+- (void)safariViewControllerDidFinish:(SFSafariViewController *)controller
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 @end

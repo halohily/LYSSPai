@@ -40,6 +40,7 @@
 		08AEA2D11F42DDC200A8F91B /* NewsReadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA2D01F42DDC200A8F91B /* NewsReadController.m */; };
 		08AEA2D41F42DE3B00A8F91B /* NewsReadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA2D31F42DE3B00A8F91B /* NewsReadModel.m */; };
 		08AEA2DC1F43225F00A8F91B /* LYSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA2DB1F43225F00A8F91B /* LYSelectView.m */; };
+		08AEA2E01F46FE4800A8F91B /* SFSafariViewController+TabbarSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA2DF1F46FE4800A8F91B /* SFSafariViewController+TabbarSetting.m */; };
 		0DBA4869A74FAABB15C4AEA7 /* libPods-LYSSPai.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BCCD8B222D2A11AB86D018 /* libPods-LYSSPai.a */; };
 		D791D3A324B2219776500FFB /* libPods-LYSSPaiUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 048BD983B929E18478DDA7BE /* libPods-LYSSPaiUITests.a */; };
 /* End PBXBuildFile section */
@@ -122,6 +123,8 @@
 		08AEA2D31F42DE3B00A8F91B /* NewsReadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsReadModel.m; sourceTree = "<group>"; };
 		08AEA2DA1F43225F00A8F91B /* LYSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYSelectView.h; sourceTree = "<group>"; };
 		08AEA2DB1F43225F00A8F91B /* LYSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYSelectView.m; sourceTree = "<group>"; };
+		08AEA2DE1F46FE4800A8F91B /* SFSafariViewController+TabbarSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SFSafariViewController+TabbarSetting.h"; sourceTree = "<group>"; };
+		08AEA2DF1F46FE4800A8F91B /* SFSafariViewController+TabbarSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SFSafariViewController+TabbarSetting.m"; sourceTree = "<group>"; };
 		730961651010214BB6992570 /* libPods-LYSSPaiTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LYSSPaiTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		864C56B68E311541B809EFC3 /* Pods-LYSSPaiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LYSSPaiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LYSSPaiTests/Pods-LYSSPaiTests.release.xcconfig"; sourceTree = "<group>"; };
 		B65E504DFD23B15591185539 /* Pods-LYSSPaiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LYSSPaiUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LYSSPaiUITests/Pods-LYSSPaiUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -220,6 +223,7 @@
 		0811BFC91F3EC34D000FEBB7 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				08AEA2DD1F46FD0900A8F91B /* category */,
 				0811BFD21F3EE579000FEBB7 /* ViewController */,
 				0811BFD11F3EE572000FEBB7 /* View */,
 				0811BFD01F3EE56A000FEBB7 /* Model */,
@@ -385,6 +389,15 @@
 			children = (
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		08AEA2DD1F46FD0900A8F91B /* category */ = {
+			isa = PBXGroup;
+			children = (
+				08AEA2DE1F46FE4800A8F91B /* SFSafariViewController+TabbarSetting.h */,
+				08AEA2DF1F46FE4800A8F91B /* SFSafariViewController+TabbarSetting.m */,
+			);
+			name = category;
 			sourceTree = "<group>";
 		};
 		377A8602D8B960723BD97FFD /* Pods */ = {
@@ -703,6 +716,7 @@
 				0811BB941F3EB3EC000FEBB7 /* AppDelegate.m in Sources */,
 				0811BFCF1F3ED0DE000FEBB7 /* HeaderView.m in Sources */,
 				08AEA29C1F407FF300A8F91B /* NewsCell.m in Sources */,
+				08AEA2E01F46FE4800A8F91B /* SFSafariViewController+TabbarSetting.m in Sources */,
 				08AEA2BE1F41C55B00A8F91B /* FindModel.m in Sources */,
 				08AEA29F1F40804200A8F91B /* PaidNewsCell.m in Sources */,
 				08AEA2CB1F42DC5600A8F91B /* LYSubViewController.m in Sources */,

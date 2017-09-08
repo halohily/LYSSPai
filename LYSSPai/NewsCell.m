@@ -31,11 +31,11 @@
     NewsCell *cell = [tableview dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil)
     {
-        cell = [[NewsCell alloc] init];
+        cell = [[NewsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         [cell setupUI];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     cell.model = model;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

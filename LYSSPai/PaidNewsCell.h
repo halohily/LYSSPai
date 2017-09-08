@@ -21,6 +21,6 @@
 @property (nonatomic, weak) id <PaidNewsCellDelegate> delegate;
 @property (nonatomic, strong) PaidNewsModel *model;
 
-+ (instancetype)cellWithPaidNewsModel:(PaidNewsModel *)model;
++ (instancetype)cellWithTableView:(UITableView *)tableview PaidNewsModel:(PaidNewsModel *)model;
 
 @end

@@ -1,0 +1,6 @@
+framework module TBActionSheet {
+  umbrella header "TBActionSheet-umbrella.h"
+
+  export *
+  module * { export * }
+}

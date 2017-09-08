@@ -220,14 +220,14 @@ SFSafariViewControllerDelegate>
     if (indexPath.row == 0)
     {
         AdsModel *model = [self.adsData objectAtIndex:0];
-        AdsCell *cell = [AdsCell cellWithAdsModel:model];
+        AdsCell *cell = [AdsCell cellWithTableview:tableView AdsModel:model];
         cell.delegate = self;
         return cell;
     }
     if (indexPath.row == 2)
     {
         PaidNewsModel *model = [self.paidNewsData objectAtIndex:0];
-        PaidNewsCell *cell = [PaidNewsCell cellWithPaidNewsModel:model];
+        PaidNewsCell *cell = [PaidNewsCell cellWithTableView:tableView PaidNewsModel:model];
         cell.delegate = self;
         return cell;
     }

@@ -13,14 +13,20 @@
 @property (nonatomic, weak) UIScrollView *backScrollView;
 
 @end
+
 @implementation AdsCell
-+ (instancetype)cellWithAdsModel:(AdsModel *)model
++ (instancetype)cellWithTableview:(UITableView *)tableview AdsModel:(AdsModel *)model
 {
-    AdsCell *cell = [[AdsCell alloc] init];
-//    设置model后再进行UI布局
-    cell.model = model;
-    [cell setupUI];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    static NSString *identifier = @"AdsCell";
+    AdsCell *cell = [tableview dequeueReusableCellWithIdentifier:identifier];
+    if (cell == nil)
+    {
+        cell = [[AdsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        //    设置model后再进行UI布局
+        cell.model = model;
+        [cell setupUI];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
     return cell;
 }
 

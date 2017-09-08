@@ -21,6 +21,6 @@
 @property (nonatomic, weak) id <AdsCellDelegate> delegate;
 @property (nonatomic, strong) AdsModel *model;
 
-+ (instancetype)cellWithAdsModel:(AdsModel *)model;
++ (instancetype)cellWithTableview:(UITableView *)tableview AdsModel:(AdsModel *)model;
 
 @end

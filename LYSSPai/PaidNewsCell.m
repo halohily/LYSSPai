@@ -11,12 +11,17 @@
 
 @implementation PaidNewsCell
 
-+ (instancetype)cellWithPaidNewsModel:(PaidNewsModel *)model
++ (instancetype)cellWithTableView:(UITableView *)tableview PaidNewsModel:(PaidNewsModel *)model
 {
-    PaidNewsCell *cell = [[PaidNewsCell alloc] init];
-    cell.model = model;
-    [cell setupUI];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    static NSString *identifier = @"paidCell";
+    PaidNewsCell *cell = [tableview dequeueReusableCellWithIdentifier:identifier];
+    if (cell == nil)
+    {
+        cell = [[PaidNewsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell.model = model;
+        [cell setupUI];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
     return cell;
 }
 

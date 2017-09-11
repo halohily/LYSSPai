@@ -20,6 +20,7 @@
 #import "ClassedViewController.h"
 #import "NewsReadModel.h"
 #import "NewsReadController.h"
+#import "MJRefreshHeader+AddIndicator.h"
 
 #import "SFSafariViewController+TabbarSetting.h"
 
@@ -67,14 +68,15 @@ SFSafariViewControllerDelegate>
     news.dataSource = self;
     news.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:news];
-//    为头部导航栏留出位置
-    news.contentInset = UIEdgeInsetsMake(130, 0, 0, 0);
     news.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    MJRefreshHeader *refreshHeader = [MJRefreshHeader indicatorHeaderWithRefreshingTarget:self refreshingAction:@selector(dropDownToRefresh)];
+    news.mj_header = refreshHeader;
+    
     self.newsTableView = news;
     
 //    初始化头部导航栏
     HeaderView *header = [[HeaderView alloc] initWithTitle:@"首页" Button:@"catalog_22x21_"];
-    [self.view addSubview:header];
     header.delegate = self;
     self.headerView = header;
 }
@@ -163,7 +165,7 @@ SFSafariViewControllerDelegate>
         [self.newsData addObject:model];
     }
     [self.newsTableView reloadData];
-    
+    [self.newsTableView.mj_header endRefreshing];
 }
 //上拉加载
 - (void)pullToAdd
@@ -183,6 +185,7 @@ SFSafariViewControllerDelegate>
     }
     [self.newsTableView reloadData];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [self.newsTableView.mj_footer endRefreshing];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -193,7 +196,7 @@ SFSafariViewControllerDelegate>
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
 //    输出scrollview的content offset Y值，调试时取消注释
-//    NSLog(@"scroll::%f",scrollView.contentOffset.y);
+    NSLog(@"scroll::%f",scrollView.contentOffset.y);
     [self.headerView viewScrolledByY:scrollView.contentOffset.y];
 }
 
@@ -253,29 +256,28 @@ SFSafariViewControllerDelegate>
     return cell;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
-{
-    MJRefreshAutoFooter *refreshFooter = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(pullToAdd)];
+//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+//{
+//    MJRefreshAutoFooter *refreshFooter = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(pullToAdd)];
 //    refreshFooter.refreshingTitleHidden = YES;
     
-    return refreshFooter;
-}
+//    return refreshFooter;
+//}
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+//{
+//    return 50;
+//}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    return 50;
+    return self.headerView;
 }
 
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//    MJRefreshHeader *refreshHeader = [MJRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(dropDownToRefresh)];
-//    return refreshHeader;
-//}
-//
-//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-//{
-//    return 30;
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 130;
+}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"第%ld个cell被点击",(long)indexPath.row);

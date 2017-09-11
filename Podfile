@@ -11,6 +11,7 @@ target 'LYSSPai' do
     pod 'MJRefresh'
     pod 'TBActionSheet'
     pod 'MBProgressHUD', '~> 1.0.0'
+    pod 'YYWebImage'
   target 'LYSSPaiTests' do
     inherit! :search_paths
     # Pods for testing

@@ -14,6 +14,8 @@
 {
     PaidNewsModel *model = [[self alloc] init];
     model.PaidNewsData = arr;
+    model.paidNewsFrame = [PaidNewsFrameModel PaidNewsFrameModelWithCount:arr.count];
+    model.cellHeight = LYScreenWidth * 0.8 + 60;
     return model;
 }
 @end

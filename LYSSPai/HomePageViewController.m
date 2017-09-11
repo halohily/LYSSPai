@@ -47,11 +47,17 @@ SFSafariViewControllerDelegate>
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupView];
-    
+    [self setupData];
     // Do any additional setup after loading the view.
 }
 
+- (void)setupData
+{
+    [self newsData];
+    [self adsData];
+    [self paidNewsData];
+    [self setupView];
+}
 - (void)setupView
 {
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -196,13 +202,16 @@ SFSafariViewControllerDelegate>
 {
     if (indexPath.row == 0)
     {
-        return (LYScreenWidth - 50) * 0.53125 + 40;
+        AdsModel *model = self.adsData[0];
+        return model.cellHeight;
     }
     if (indexPath.row == 2)
     {
-        return LYScreenWidth * 0.8 + 60;
+        PaidNewsModel *model = self.paidNewsData[0];
+        return model.cellHeight;
     }
-    return 210 + LYScreenWidth * 0.3331;
+    NewsModel *model = self.newsData[0];
+    return model.cellHeight;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

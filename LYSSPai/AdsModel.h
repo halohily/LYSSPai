@@ -11,7 +11,7 @@
 @interface AdsModel : NSObject
 
 @property (nonatomic, strong) NSArray *AdsData;
-
+@property (nonatomic, assign) CGFloat cellHeight;
 + (instancetype)AdsModelWithArr:(NSArray *)arr;
 
 @end

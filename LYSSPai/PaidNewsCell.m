@@ -8,6 +8,9 @@
 
 #import "PaidNewsCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <CALayer+YYWebImage.h>
+#import <UIImageView+YYWebImage.h>
+#import <UIImage+YYWebImage.h>
 
 @implementation PaidNewsCell
 
@@ -31,14 +34,14 @@
     float cellHeight = LYScreenWidth * 0.7;
     UILabel *cellTitle = [[UILabel alloc] init];
     [self.contentView addSubview:cellTitle];
-    cellTitle.frame = CGRectMake(25, 10, 100, 18);
+    cellTitle.frame = self.model.paidNewsFrame.cellTitleFrame;
     cellTitle.font = [UIFont boldSystemFontOfSize:16.0];
     cellTitle.textAlignment = NSTextAlignmentLeft;
     cellTitle.text = @"付费栏目";
     
     UIButton *more = [[UIButton alloc] init];
     [self.contentView addSubview:more];
-    more.frame = CGRectMake(LYScreenWidth - 65, 11, 40, 16);
+    more.frame = self.model.paidNewsFrame.moreFrame;
     [more setTitle:@"更多" forState:UIControlStateNormal];
     [more setTitleColor:UIColor(170, 170, 170) forState:UIControlStateNormal];
     more.titleLabel.font = [UIFont systemFontOfSize:14.0];
@@ -46,19 +49,21 @@
     
     UIScrollView *backScrollView = [[UIScrollView alloc] init];
     [self.contentView addSubview:backScrollView];
-    backScrollView.frame = CGRectMake(0, 43, LYScreenWidth, cellHeight);
+    backScrollView.frame = self.model.paidNewsFrame.backScrollViewFrame;
     backScrollView.backgroundColor = [UIColor whiteColor];
     backScrollView.showsHorizontalScrollIndicator = NO;
     backScrollView.contentSize = CGSizeMake(35 + self.model.PaidNewsData.count * (cellWidth + 15), cellHeight);
     
     for (int i = 0; i < self.model.PaidNewsData.count; i++)
     {
-        UIImageView *paidNewsView = [[UIImageView alloc] initWithFrame:CGRectMake(25 + (cellWidth + 15) * i, 0, cellWidth, cellHeight)];
-        paidNewsView.layer.cornerRadius = 5.0;
-        paidNewsView.layer.masksToBounds = YES;
+        NSValue *paidNewsViewFrame = self.model.paidNewsFrame.paidNewsViewFrames[i];
+        UIImageView *paidNewsView = [[UIImageView alloc] initWithFrame:paidNewsViewFrame.CGRectValue];
         paidNewsView.tag = i;
-        [paidNewsView sd_setImageWithURL:[NSURL URLWithString:self.model.PaidNewsData[i][@"banner"]]];
-        
+        [paidNewsView yy_setImageWithURL:[NSURL URLWithString:self.model.PaidNewsData[i][@"banner"]] placeholder:nil options:kNilOptions progress:nil transform:^UIImage * _Nullable(UIImage * _Nonnull image, NSURL * _Nonnull url) {
+            image = [image yy_imageByRoundCornerRadius:8.0];
+            return image;
+        } completion:nil];
+    
         UILabel *paidTitle = [[UILabel alloc] init];
         [paidNewsView addSubview:paidTitle];
         paidTitle.text = self.model.PaidNewsData[i][@"title"];
@@ -70,16 +75,19 @@
         paidTitle.frame = CGRectMake(15, 50, cellWidth - 30, labelSize.height);
         paidTitle.textColor = [UIColor whiteColor];
         
-        UIImageView *avator = [[UIImageView alloc] init];
-        [paidNewsView addSubview:avator];
-        avator.frame = CGRectMake(15, cellHeight - 90, 20, 20);
-        avator.layer.cornerRadius = 10;
-        avator.layer.masksToBounds = YES;
-        [avator sd_setImageWithURL:[NSURL URLWithString:self.model.PaidNewsData[i][@"avatar"]]];
+        CALayer *avator = [[CALayer alloc] init];
+        [paidNewsView.layer addSublayer:avator];
+        NSValue *avatorFrame = self.model.paidNewsFrame.avatorFrames[i];
+        avator.frame = avatorFrame.CGRectValue;
+        [avator yy_setImageWithURL:[NSURL URLWithString:self.model.PaidNewsData[i][@"avatar"]] placeholder:nil options:kNilOptions progress:nil transform:^UIImage * _Nullable(UIImage * _Nonnull image, NSURL * _Nonnull url) {
+            image = [image yy_imageByRoundCornerRadius:40.0];
+            return image;
+        } completion:nil];
         
         UILabel *nickname = [[UILabel alloc] init];
         [paidNewsView addSubview:nickname];
-        nickname.frame = CGRectMake(45, cellHeight - 85, cellWidth - 75, 12);
+        NSValue *nicknameFrame = self.model.paidNewsFrame.nicknameFrames[i];
+        nickname.frame = nicknameFrame.CGRectValue;
         nickname.textAlignment = NSTextAlignmentLeft;
         nickname.font = [UIFont boldSystemFontOfSize:12.0];
         nickname.textColor = [UIColor whiteColor];
@@ -87,7 +95,8 @@
         
         UILabel *updateInfo = [[UILabel alloc] init];
         [paidNewsView addSubview:updateInfo];
-        updateInfo.frame = CGRectMake(15, cellHeight - 50, cellWidth - 30, 12);
+        NSValue *updateInfoFrame = self.model.paidNewsFrame.updateInfoFrames[i];
+        updateInfo.frame = updateInfoFrame.CGRectValue;
         updateInfo.font = [UIFont systemFontOfSize:12.0];
         updateInfo.textColor = [UIColor whiteColor];
         updateInfo.textAlignment = NSTextAlignmentLeft;

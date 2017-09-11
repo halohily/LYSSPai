@@ -41,6 +41,7 @@
 		08AEA2E01F46FE4800A8F91B /* SFSafariViewController+TabbarSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA2DF1F46FE4800A8F91B /* SFSafariViewController+TabbarSetting.m */; };
 		08AEA31C1F623A0000A8F91B /* refresh.json in Resources */ = {isa = PBXBuildFile; fileRef = 08AEA31A1F623A0000A8F91B /* refresh.json */; };
 		08AEA31D1F623A0000A8F91B /* news_refresh.json in Resources */ = {isa = PBXBuildFile; fileRef = 08AEA31B1F623A0000A8F91B /* news_refresh.json */; };
+		08AEA3201F627AA300A8F91B /* PaidNewsFrameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA31F1F627AA300A8F91B /* PaidNewsFrameModel.m */; };
 		0DBA4869A74FAABB15C4AEA7 /* libPods-LYSSPai.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BCCD8B222D2A11AB86D018 /* libPods-LYSSPai.a */; };
 		D791D3A324B2219776500FFB /* libPods-LYSSPaiUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 048BD983B929E18478DDA7BE /* libPods-LYSSPaiUITests.a */; };
 /* End PBXBuildFile section */
@@ -125,6 +126,8 @@
 		08AEA2DF1F46FE4800A8F91B /* SFSafariViewController+TabbarSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SFSafariViewController+TabbarSetting.m"; sourceTree = "<group>"; };
 		08AEA31A1F623A0000A8F91B /* refresh.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = refresh.json; sourceTree = "<group>"; };
 		08AEA31B1F623A0000A8F91B /* news_refresh.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = news_refresh.json; sourceTree = "<group>"; };
+		08AEA31E1F627AA300A8F91B /* PaidNewsFrameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaidNewsFrameModel.h; sourceTree = "<group>"; };
+		08AEA31F1F627AA300A8F91B /* PaidNewsFrameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaidNewsFrameModel.m; sourceTree = "<group>"; };
 		730961651010214BB6992570 /* libPods-LYSSPaiTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LYSSPaiTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		864C56B68E311541B809EFC3 /* Pods-LYSSPaiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LYSSPaiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LYSSPaiTests/Pods-LYSSPaiTests.release.xcconfig"; sourceTree = "<group>"; };
 		B65E504DFD23B15591185539 /* Pods-LYSSPaiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LYSSPaiUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LYSSPaiUITests/Pods-LYSSPaiUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -271,6 +274,8 @@
 				08AEA2AA1F4080CB00A8F91B /* PaidNewsModel.m */,
 				08AEA2D21F42DE3B00A8F91B /* NewsReadModel.h */,
 				08AEA2D31F42DE3B00A8F91B /* NewsReadModel.m */,
+				08AEA31E1F627AA300A8F91B /* PaidNewsFrameModel.h */,
+				08AEA31F1F627AA300A8F91B /* PaidNewsFrameModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -729,6 +734,7 @@
 				0811BFC21F3EBC28000FEBB7 /* HomePageViewController.m in Sources */,
 				0811BFC81F3EBC55000FEBB7 /* MessageViewController.m in Sources */,
 				08AEA2A81F4080B600A8F91B /* NewsModel.m in Sources */,
+				08AEA3201F627AA300A8F91B /* PaidNewsFrameModel.m in Sources */,
 				08AEA2DC1F43225F00A8F91B /* LYSelectView.m in Sources */,
 				08AEA2A51F4080A400A8F91B /* AdsModel.m in Sources */,
 				08AEA2991F407FE200A8F91B /* AdsCell.m in Sources */,

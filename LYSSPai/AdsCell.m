@@ -8,6 +8,10 @@
 
 #import "AdsCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <UIImageView+YYWebImage.h>
+#import <CALayer+YYWebImage.h>
+#import <UIImage+YYWebImage.h>
+
 @interface AdsCell()
 
 @property (nonatomic, weak) UIScrollView *backScrollView;
@@ -46,17 +50,19 @@
         shadowView.layer.shadowRadius = 5.0;
         shadowView.layer.shadowOpacity = 0.3;
         shadowView.layer.shadowOffset = CGSizeMake(-4, 4);
-        UIImageView *AdsView = [[UIImageView alloc] init];
+        shadowView.userInteractionEnabled = YES;
+        shadowView.tag = i;
+        CALayer *AdsView = [[CALayer alloc] init];
         AdsView.frame = CGRectMake(0, 0, LYScreenWidth - 50, (LYScreenWidth - 50) * 0.53125);
-        AdsView.layer.cornerRadius = 5.0;
-        AdsView.layer.masksToBounds = YES;
-//        打开imageview的交互响应开关
-        AdsView.userInteractionEnabled = YES;
-        [AdsView sd_setImageWithURL:[NSURL URLWithString:self.model.AdsData[i][@"image"]]];
-        AdsView.tag = i;
-        [shadowView addSubview:AdsView];
+        
+        [AdsView yy_setImageWithURL:[NSURL URLWithString:self.model.AdsData[i][@"image"]] placeholder:nil options:kNilOptions progress:nil transform:^UIImage * _Nullable(UIImage * _Nonnull image, NSURL * _Nonnull url) {
+            image = [image yy_imageByRoundCornerRadius:5.0];
+            return image;
+        } completion:nil];
+        
+        [shadowView.layer addSublayer:AdsView];
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(AdsViewDidSelect:)];
-        [AdsView addGestureRecognizer:tap];
+        [shadowView addGestureRecognizer:tap];
         
         [self.backScrollView addSubview:shadowView];
     }

@@ -14,6 +14,7 @@
 {
     AdsModel *model = [[self alloc] init];
     model.AdsData = arr;
+    model.cellHeight = (LYScreenWidth - 50) * 0.53125 + 40;
     return model;
 }
 @end

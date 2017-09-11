@@ -23,6 +23,7 @@
     model.avator = author[@"avatar"];
     model.nickname = author[@"nickname"];
     model.articleID = dic[@"id"];
+    model.cellHeight = 210 + LYScreenWidth * 0.3331;
     return model;
 }
 @end

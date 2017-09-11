@@ -19,7 +19,7 @@
 @property (nonatomic, copy) NSString *like_total;
 @property (nonatomic, copy) NSString *released_at;
 @property (nonatomic, copy) NSString *articleID;
-
+@property (nonatomic, assign) CGFloat cellHeight;
 + (instancetype)NewsModelWithDic:(NSDictionary *)dic;
 
 @end

@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PaidNewsFrameModel.h"
 
 @interface PaidNewsModel : NSObject
 
 @property (nonatomic, strong) NSArray *PaidNewsData;
+@property (nonatomic, strong) PaidNewsFrameModel *paidNewsFrame;
+@property (nonatomic, assign) CGFloat cellHeight;
 
 + (instancetype)PaidNewsModelWithArr:(NSArray *)arr;
 

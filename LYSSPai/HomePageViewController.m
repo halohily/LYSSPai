@@ -21,6 +21,7 @@
 #import "NewsReadModel.h"
 #import "NewsReadController.h"
 #import "MJRefreshHeader+AddIndicator.h"
+#import "LYLoadingView.h"
 
 #import "SFSafariViewController+TabbarSetting.h"
 
@@ -55,6 +56,7 @@ SFSafariViewControllerDelegate>
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupView];
     [self setupData];
     // Do any additional setup after loading the view.
 }
@@ -64,14 +66,24 @@ SFSafariViewControllerDelegate>
     [self newsData];
     [self adsData];
     [self paidNewsData];
-    [self setupView];
+    [self.newsTableView reloadData];
 }
 - (void)setupView
 {
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    //    初始化loadingview
+    CGRect loadingViewFrame = CGRectMake(0, 130, LYScreenWidth, LYScreenHeight - 130);
+    [LYLoadingView showLoadingViewToView:self.view WithFrame:loadingViewFrame];
+    
+    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8/*延迟执行时间*/ * NSEC_PER_SEC));
+    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+        [LYLoadingView hideLoadingViewFromView:self.view];
+    });
+    
 //    初始化背景scrollview
     UIScrollView *backScrollView = [[UIScrollView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    [self.view addSubview:backScrollView];
+    [self.view insertSubview:backScrollView atIndex:0];
     self.backgroundScrollView = backScrollView;
     
 //    初始化首页内容tableview
@@ -93,6 +105,7 @@ SFSafariViewControllerDelegate>
     header.delegate = self;
     self.headerView = header;
     [self.backgroundScrollView addSubview:header];
+
 }
 
 - (NSMutableArray *)newsData

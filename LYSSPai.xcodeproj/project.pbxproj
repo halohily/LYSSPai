@@ -43,6 +43,7 @@
 		08AEA31D1F623A0000A8F91B /* news_refresh.json in Resources */ = {isa = PBXBuildFile; fileRef = 08AEA31B1F623A0000A8F91B /* news_refresh.json */; };
 		08AEA3201F627AA300A8F91B /* PaidNewsFrameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA31F1F627AA300A8F91B /* PaidNewsFrameModel.m */; };
 		08AEA3261F66A2A900A8F91B /* MJRefreshHeader+AddIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA3251F66A2A900A8F91B /* MJRefreshHeader+AddIndicator.m */; };
+		08AEA3291F6813C100A8F91B /* LYLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA3281F6813C100A8F91B /* LYLoadingView.m */; };
 		0DBA4869A74FAABB15C4AEA7 /* libPods-LYSSPai.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BCCD8B222D2A11AB86D018 /* libPods-LYSSPai.a */; };
 		D791D3A324B2219776500FFB /* libPods-LYSSPaiUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 048BD983B929E18478DDA7BE /* libPods-LYSSPaiUITests.a */; };
 /* End PBXBuildFile section */
@@ -131,6 +132,8 @@
 		08AEA31F1F627AA300A8F91B /* PaidNewsFrameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaidNewsFrameModel.m; sourceTree = "<group>"; };
 		08AEA3241F66A2A900A8F91B /* MJRefreshHeader+AddIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MJRefreshHeader+AddIndicator.h"; sourceTree = "<group>"; };
 		08AEA3251F66A2A900A8F91B /* MJRefreshHeader+AddIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MJRefreshHeader+AddIndicator.m"; sourceTree = "<group>"; };
+		08AEA3271F6813C100A8F91B /* LYLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYLoadingView.h; sourceTree = "<group>"; };
+		08AEA3281F6813C100A8F91B /* LYLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYLoadingView.m; sourceTree = "<group>"; };
 		730961651010214BB6992570 /* libPods-LYSSPaiTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LYSSPaiTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		864C56B68E311541B809EFC3 /* Pods-LYSSPaiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LYSSPaiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LYSSPaiTests/Pods-LYSSPaiTests.release.xcconfig"; sourceTree = "<group>"; };
 		B65E504DFD23B15591185539 /* Pods-LYSSPaiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LYSSPaiUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LYSSPaiUITests/Pods-LYSSPaiUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -331,6 +334,8 @@
 				0811BFCE1F3ED0DE000FEBB7 /* HeaderView.m */,
 				08AEA3241F66A2A900A8F91B /* MJRefreshHeader+AddIndicator.h */,
 				08AEA3251F66A2A900A8F91B /* MJRefreshHeader+AddIndicator.m */,
+				08AEA3271F6813C100A8F91B /* LYLoadingView.h */,
+				08AEA3281F6813C100A8F91B /* LYLoadingView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -747,6 +752,7 @@
 				08AEA2D41F42DE3B00A8F91B /* NewsReadModel.m in Sources */,
 				0811BFBF1F3EBC0F000FEBB7 /* LYSSPaiViewController.m in Sources */,
 				0811BFBC1F3EBA72000FEBB7 /* LoginPageViewController.m in Sources */,
+				08AEA3291F6813C100A8F91B /* LYLoadingView.m in Sources */,
 				08AEA2CE1F42DCEA00A8F91B /* ClassedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

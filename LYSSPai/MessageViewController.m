@@ -9,10 +9,12 @@
 #import "MessageViewController.h"
 #import "HeaderView.h"
 #import "LYSelectView.h"
+#import "MJRefreshHeader+AddIndicator.h"
 
 @interface MessageViewController ()<UIScrollViewDelegate, LYSelectViewDelegate>
 
 @property (nonatomic, strong) HeaderView *headerView;
+
 @property (nonatomic, strong) UIScrollView *contentView;
 @property (nonatomic, strong) UIScrollView *backView;
 //用户记录此时选中的按钮
@@ -45,46 +47,49 @@
     backScrollView.showsVerticalScrollIndicator = NO;
     backScrollView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:backScrollView];
-////    为selectview和headview留出位置
-    backScrollView.contentInset = UIEdgeInsetsMake(140, 0, 0, 0);
-    backScrollView.contentSize = CGSizeMake(0, LYScreenHeight + 50);
+//////    为selectview和headview留出位置
+//    backScrollView.contentInset = UIEdgeInsetsMake(140, 0, 0, 0);
+//    backScrollView.contentSize = CGSizeMake(0, LYScreenHeight + 50);
     backScrollView.delegate = self;
     self.backView = backScrollView;
-    
-    //    初始化头部导航栏
-    HeaderView *header = [[HeaderView alloc] initWithTitle:@"消息" Button:NULL];
-    [self.view addSubview:header];
-    self.headerView = header;
-    
-//    初始化selectview
-    LYSelectView *selectView = [[LYSelectView alloc] init];
-    self.selectView = selectView;
-    selectView.delegate = self;
-    [self.view addSubview:selectView];
+    MJRefreshHeader *refreshHeader = [MJRefreshHeader indicatorHeaderWithRefreshingTarget:self refreshingAction:@selector(dropDownToRefresh)];
+    self.backView.mj_header = refreshHeader;
     
 //    初始化内容scrollview，用于横向滑动
-    UIScrollView *content = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 40, LYScreenWidth, LYScreenHeight - 250)];
+    UIScrollView *content = [[UIScrollView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    content.contentInset = UIEdgeInsetsMake(194, 0, 0, 0);
     content.contentSize = CGSizeMake(LYScreenWidth * 2,0);
     content.backgroundColor = [UIColor whiteColor];
     content.showsHorizontalScrollIndicator = NO;
     content.bounces = NO;
     content.delegate = self;
     self.contentView = content;
-    [backScrollView addSubview:content];
+    [self.backView addSubview:content];
     
-    UILabel *notice = [[UILabel alloc] initWithFrame:CGRectMake(0, 120, LYScreenWidth, 20)];
+    UILabel *notice = [[UILabel alloc] initWithFrame:CGRectMake(0, 144, LYScreenWidth, 20)];
     [content addSubview:notice];
     notice.textAlignment = NSTextAlignmentCenter;
     notice.textColor = UIColor(170, 170, 170);
     notice.font = [UIFont systemFontOfSize:16.0];
     notice.text = @"请登录以查看消息";
     
-    UILabel *notice2 = [[UILabel alloc] initWithFrame:CGRectMake(LYScreenWidth, 120, LYScreenWidth, 20)];
+    UILabel *notice2 = [[UILabel alloc] initWithFrame:CGRectMake(LYScreenWidth, 144, LYScreenWidth, 20)];
     [content addSubview:notice2];
     notice2.textAlignment = NSTextAlignmentCenter;
     notice2.textColor = UIColor(170, 170, 170);
     notice2.font = [UIFont systemFontOfSize:16.0];
     notice2.text = @"请登录以查看消息";
+    
+    //    初始化头部导航栏
+    HeaderView *header = [[HeaderView alloc] initWithTitle:@"消息" Button:NULL];
+    [self.backView addSubview:header];
+    self.headerView = header;
+    
+    //    初始化selectview
+    LYSelectView *selectView = [[LYSelectView alloc] init];
+    self.selectView = selectView;
+    selectView.delegate = self;
+    [self.backView addSubview:selectView];
     
 }
 
@@ -95,8 +100,8 @@
     if (scrollView == self.backView)
     {
         NSLog(@"scroll %f",scrollView.contentOffset.y);
-        [self.headerView viewScrolledByY:scrollView.contentOffset.y];
-        [self.selectView viewScrolledByY:scrollView.contentOffset.y];
+        [self.headerView viewScrolledByY:scrollView.contentOffset.y - 130];
+//        [self.selectView viewScrolledByY:scrollView.contentOffset.y];
         return;
     }
     if (scrollView == self.contentView)
@@ -137,15 +142,15 @@
         }
         [self contentViewScrollAnimation];
     }
-    if (scrollView == self.backView)
-    {
-        if (scrollView.contentOffset.y > -140)
-        {
-            [UIView animateWithDuration:0.3 animations:^{
-                [self.backView setContentOffset:CGPointMake(0, -140)];
-            }];
-        }
-    }
+//    if (scrollView == self.backView)
+//    {
+//        if (scrollView.contentOffset.y > -140)
+//        {
+//            [UIView animateWithDuration:0.3 animations:^{
+//                [self.backView setContentOffset:CGPointMake(0, -140)];
+//            }];
+//        }
+//    }
 
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
@@ -194,6 +199,18 @@
 {
     self.selectedTag = tag;
     [self contentViewScrollAnimation];
+}
+
+#pragma mark - private methods
+//下拉刷新
+- (void)dropDownToRefresh
+{
+    [self.backView.mj_header endRefreshing];
+}
+//上拉加载
+- (void)pullToAdd
+{
+    [self.backView.mj_footer endRefreshing];
 }
 
 @end

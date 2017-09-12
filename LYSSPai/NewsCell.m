@@ -154,7 +154,7 @@
 {
     _model = model;
     [self.avator yy_setImageWithURL:[NSURL URLWithString:model.avator] placeholder:nil options:kNilOptions progress:nil transform:^UIImage * _Nullable(UIImage * _Nonnull image, NSURL * _Nonnull url) {
-        image = [image yy_imageByRoundCornerRadius:50.0];
+        image = [image yy_imageByRoundCornerRadius:60.0];
         return image;
     } completion:nil];
     self.nickname.text = model.nickname;

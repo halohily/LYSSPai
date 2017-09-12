@@ -20,6 +20,7 @@
 #import "ClassedViewController.h"
 #import "NewsReadModel.h"
 #import "NewsReadController.h"
+#import "MJRefreshHeader+AddIndicator.h"
 
 #import "SFSafariViewController+TabbarSetting.h"
 
@@ -33,12 +34,19 @@ NewsCellDelegate,
 AdsCellDelegate,
 PaidNewsCellDelegate,
 SFSafariViewControllerDelegate>
-
+//顶部导航栏
 @property (nonatomic, strong) HeaderView *headerView;
+//页面内容table
 @property (nonatomic, strong) UITableView *newsTableView;
+//页面容器scrollview
+@property (nonatomic, strong) UIScrollView *backgroundScrollView;
+//新闻数据
 @property (nonatomic, strong) NSMutableArray *newsData;
+//广告数据
 @property (nonatomic, strong) NSMutableArray *adsData;
+//付费内容数据
 @property (nonatomic, strong) NSMutableArray *paidNewsData;
+//时间列表控件
 @property (nonatomic, strong) TBActionSheet *actionSheet;
 
 @end
@@ -61,22 +69,30 @@ SFSafariViewControllerDelegate>
 - (void)setupView
 {
     self.automaticallyAdjustsScrollViewInsets = NO;
+//    初始化背景scrollview
+    UIScrollView *backScrollView = [[UIScrollView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [self.view addSubview:backScrollView];
+    self.backgroundScrollView = backScrollView;
+    
 //    初始化首页内容tableview
     UITableView *news = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStylePlain];
     news.delegate = self;
     news.dataSource = self;
     news.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:news];
-//    为头部导航栏留出位置
     news.contentInset = UIEdgeInsetsMake(130, 0, 0, 0);
+    [self.backgroundScrollView addSubview:news];
     news.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.newsTableView = news;
     
+    
+    MJRefreshHeader *refreshHeader = [MJRefreshHeader indicatorHeaderWithRefreshingTarget:self refreshingAction:@selector(dropDownToRefresh)];
+    self.backgroundScrollView.mj_header = refreshHeader;
+    
 //    初始化头部导航栏
     HeaderView *header = [[HeaderView alloc] initWithTitle:@"首页" Button:@"catalog_22x21_"];
-    [self.view addSubview:header];
     header.delegate = self;
     self.headerView = header;
+    [self.backgroundScrollView addSubview:header];
 }
 
 - (NSMutableArray *)newsData
@@ -163,7 +179,7 @@ SFSafariViewControllerDelegate>
         [self.newsData addObject:model];
     }
     [self.newsTableView reloadData];
-    
+    [self.backgroundScrollView.mj_header endRefreshing];
 }
 //上拉加载
 - (void)pullToAdd
@@ -183,6 +199,7 @@ SFSafariViewControllerDelegate>
     }
     [self.newsTableView reloadData];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [self.newsTableView.mj_footer endRefreshing];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -193,7 +210,7 @@ SFSafariViewControllerDelegate>
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
 //    输出scrollview的content offset Y值，调试时取消注释
-//    NSLog(@"scroll::%f",scrollView.contentOffset.y);
+    NSLog(@"scroll::%f",scrollView.contentOffset.y);
     [self.headerView viewScrolledByY:scrollView.contentOffset.y];
 }
 
@@ -253,28 +270,27 @@ SFSafariViewControllerDelegate>
     return cell;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
-{
-    MJRefreshAutoFooter *refreshFooter = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(pullToAdd)];
+//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+//{
+//    MJRefreshAutoFooter *refreshFooter = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(pullToAdd)];
 //    refreshFooter.refreshingTitleHidden = YES;
     
-    return refreshFooter;
-}
+//    return refreshFooter;
+//}
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 50;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+//{
+//    return 50;
+//}
 
 //- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 //{
-//    MJRefreshHeader *refreshHeader = [MJRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(dropDownToRefresh)];
-//    return refreshHeader;
+//    return self.headerView;
 //}
 //
 //- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 //{
-//    return 30;
+//    return 130;
 //}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

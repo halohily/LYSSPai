@@ -20,7 +20,7 @@
 
 - (instancetype)init
 {
-    self = [super initWithFrame:CGRectMake(0, 100, LYScreenWidth, 64)];
+    self = [super initWithFrame:CGRectMake(0, 130, LYScreenWidth, 64)];
     [self setupUI];
     self.SelectedBtn = self.Notification;
     return self;

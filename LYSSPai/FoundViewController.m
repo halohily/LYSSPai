@@ -10,10 +10,13 @@
 #import "HeaderView.h"
 #import "FindCell.h"
 #import "FindModel.h"
+#import "MJRefreshHeader+AddIndicator.h"
 
 @interface FoundViewController ()<UITableViewDelegate, UITableViewDataSource, HeaderViewDelegate>
 
 @property (nonatomic, strong) HeaderView *headerView;
+//页面容器scrollview
+@property (nonatomic, strong) UIScrollView *backgroundScrollView;
 @property (nonatomic, strong) UITableView *subjectsTableView;
 @property (nonatomic, strong) NSArray *findData;
 @end
@@ -53,12 +56,18 @@
 - (void)setupView
 {
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    //    初始化背景scrollview
+    UIScrollView *backScrollView = [[UIScrollView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [self.view addSubview:backScrollView];
+    self.backgroundScrollView = backScrollView;
+    
     //    初始化首页内容tableview
     UITableView *subjects = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStylePlain];
     subjects.delegate = self;
     subjects.dataSource = self;
     subjects.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:subjects];
+    [self.backgroundScrollView addSubview:subjects];
     //    为头部导航栏留出位置
     subjects.contentInset = UIEdgeInsetsMake(130, 0, 0, 0);
     subjects.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -66,10 +75,12 @@
     
     //    初始化头部导航栏
     HeaderView *header = [[HeaderView alloc] initWithTitle:@"发现" Button:@"nav_but_search_20x20_"];
-    [self.view addSubview:header];
+    [self.backgroundScrollView addSubview:header];
     header.delegate = self;
     self.headerView = header;
 
+    MJRefreshHeader *refreshHeader = [MJRefreshHeader indicatorHeaderWithRefreshingTarget:self refreshingAction:@selector(dropDownToRefresh)];
+    self.backgroundScrollView.mj_header = refreshHeader;
 }
 
 #pragma mark scrollView delegate
@@ -117,4 +128,18 @@
 {
     
 }
+
+#pragma mark - private methods
+//下拉刷新
+- (void)dropDownToRefresh
+{
+    [self.subjectsTableView reloadData];
+    [self.backgroundScrollView.mj_header endRefreshing];
+}
+//上拉加载
+- (void)pullToAdd
+{
+    [self.backgroundScrollView.mj_footer endRefreshing];
+}
+
 @end

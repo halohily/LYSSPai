@@ -34,12 +34,19 @@ NewsCellDelegate,
 AdsCellDelegate,
 PaidNewsCellDelegate,
 SFSafariViewControllerDelegate>
-
+//顶部导航栏
 @property (nonatomic, strong) HeaderView *headerView;
+//页面内容table
 @property (nonatomic, strong) UITableView *newsTableView;
+//页面容器scrollview
+@property (nonatomic, strong) UIScrollView *backgroundScrollView;
+//新闻数据
 @property (nonatomic, strong) NSMutableArray *newsData;
+//广告数据
 @property (nonatomic, strong) NSMutableArray *adsData;
+//付费内容数据
 @property (nonatomic, strong) NSMutableArray *paidNewsData;
+//时间列表控件
 @property (nonatomic, strong) TBActionSheet *actionSheet;
 
 @end
@@ -62,23 +69,30 @@ SFSafariViewControllerDelegate>
 - (void)setupView
 {
     self.automaticallyAdjustsScrollViewInsets = NO;
+//    初始化背景scrollview
+    UIScrollView *backScrollView = [[UIScrollView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [self.view addSubview:backScrollView];
+    self.backgroundScrollView = backScrollView;
+    
 //    初始化首页内容tableview
     UITableView *news = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStylePlain];
     news.delegate = self;
     news.dataSource = self;
     news.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:news];
+    news.contentInset = UIEdgeInsetsMake(130, 0, 0, 0);
+    [self.backgroundScrollView addSubview:news];
     news.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.newsTableView = news;
+    
     
     MJRefreshHeader *refreshHeader = [MJRefreshHeader indicatorHeaderWithRefreshingTarget:self refreshingAction:@selector(dropDownToRefresh)];
-    news.mj_header = refreshHeader;
-    
-    self.newsTableView = news;
+    self.backgroundScrollView.mj_header = refreshHeader;
     
 //    初始化头部导航栏
     HeaderView *header = [[HeaderView alloc] initWithTitle:@"首页" Button:@"catalog_22x21_"];
     header.delegate = self;
     self.headerView = header;
+    [self.backgroundScrollView addSubview:header];
 }
 
 - (NSMutableArray *)newsData
@@ -165,7 +179,7 @@ SFSafariViewControllerDelegate>
         [self.newsData addObject:model];
     }
     [self.newsTableView reloadData];
-    [self.newsTableView.mj_header endRefreshing];
+    [self.backgroundScrollView.mj_header endRefreshing];
 }
 //上拉加载
 - (void)pullToAdd
@@ -269,15 +283,15 @@ SFSafariViewControllerDelegate>
 //    return 50;
 //}
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    return self.headerView;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 130;
-}
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    return self.headerView;
+//}
+//
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+//{
+//    return 130;
+//}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"第%ld个cell被点击",(long)indexPath.row);

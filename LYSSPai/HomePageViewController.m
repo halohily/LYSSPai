@@ -63,10 +63,34 @@ SFSafariViewControllerDelegate>
 
 - (void)setupData
 {
-    [self newsData];
-    [self adsData];
-    [self paidNewsData];
-    [self.newsTableView reloadData];
+    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8/*延迟执行时间*/ * NSEC_PER_SEC));
+    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+        NSData *JSONDataNews = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"newsData" ofType:@"json"]];
+        
+        NSDictionary *newsDataDic = [NSJSONSerialization JSONObjectWithData:JSONDataNews options:NSJSONReadingAllowFragments error:nil];
+        
+        NSMutableArray *newsArray = [newsDataDic objectForKey:@"data"];
+        for (NSDictionary *dict in newsArray) {
+            NewsModel *newsModel = [NewsModel NewsModelWithDic:dict];
+            [self.newsData addObject:newsModel];
+        }
+        
+        NSData *JSONDataAds = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"adsData" ofType:@"json"]];
+        
+        NSDictionary *adsDataDic = [NSJSONSerialization JSONObjectWithData:JSONDataAds options:NSJSONReadingAllowFragments error:nil];
+        NSMutableArray *adsArray = adsDataDic[@"data"];
+        AdsModel *adsModel = [AdsModel AdsModelWithArr:adsArray];
+        [self.adsData addObject:adsModel];
+        
+        NSData *JSONDataPaid = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"paidNewsData" ofType:@"json"]];
+        
+        NSDictionary *paidDataDic = [NSJSONSerialization JSONObjectWithData:JSONDataPaid options:NSJSONReadingAllowFragments error:nil];
+        NSMutableArray *paidNewsArray = paidDataDic[@"data"];
+        PaidNewsModel *paidModel = [PaidNewsModel PaidNewsModelWithArr:paidNewsArray];
+        [self.paidNewsData addObject:paidModel];
+        [self.newsTableView reloadData];
+        [LYLoadingView hideLoadingViewFromView:self.view];
+    });
 }
 - (void)setupView
 {
@@ -75,11 +99,6 @@ SFSafariViewControllerDelegate>
     //    初始化loadingview
     CGRect loadingViewFrame = CGRectMake(0, 130, LYScreenWidth, LYScreenHeight - 130);
     [LYLoadingView showLoadingViewToView:self.view WithFrame:loadingViewFrame];
-    
-    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8/*延迟执行时间*/ * NSEC_PER_SEC));
-    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
-        [LYLoadingView hideLoadingViewFromView:self.view];
-    });
     
 //    初始化背景scrollview
     UIScrollView *backScrollView = [[UIScrollView alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -112,17 +131,7 @@ SFSafariViewControllerDelegate>
 {
     if(_newsData == nil)
     {
-        NSData *JSONData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"newsData" ofType:@"json"]];
-        
-        NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingAllowFragments error:nil];
-        
-        NSMutableArray *newsArray = [dataDic objectForKey:@"data"];
-        NSMutableArray *newsdata = [[NSMutableArray alloc] init];
-        for (NSDictionary *dict in newsArray) {
-            NewsModel *model = [NewsModel NewsModelWithDic:dict];
-            [newsdata addObject:model];
-        }
-        _newsData = newsdata;
+        _newsData = [[NSMutableArray alloc] init];
     }
     return _newsData;
 }
@@ -131,13 +140,7 @@ SFSafariViewControllerDelegate>
 {
     if (_adsData == nil)
     {
-        NSData *JSONData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"adsData" ofType:@"json"]];
-        
-        NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingAllowFragments error:nil];
-        NSMutableArray *adsArray = dataDic[@"data"];
-        AdsModel *model = [AdsModel AdsModelWithArr:adsArray];
-        NSMutableArray *adsdata = [NSMutableArray arrayWithObjects:model, nil];
-        _adsData = adsdata;
+        _adsData = [[NSMutableArray alloc] init];
     }
     return _adsData;
 }
@@ -146,13 +149,7 @@ SFSafariViewControllerDelegate>
 {
     if (_paidNewsData == nil)
     {
-        NSData *JSONData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"paidNewsData" ofType:@"json"]];
-        
-        NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingAllowFragments error:nil];
-        NSMutableArray *paidNewsArray = dataDic[@"data"];
-        PaidNewsModel *model = [PaidNewsModel PaidNewsModelWithArr:paidNewsArray];
-        NSMutableArray *paidnews = [NSMutableArray arrayWithObjects:model, nil];
-        _paidNewsData = paidnews;
+        _paidNewsData = [[NSMutableArray alloc] init];
     }
     return _paidNewsData;
 }
@@ -171,12 +168,7 @@ SFSafariViewControllerDelegate>
 //下拉刷新
 - (void)dropDownToRefresh
 {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.mode = MBProgressHUDModeIndeterminate;
-    hud.label.text = @"请稍候";
-    [hud hideAnimated:YES afterDelay:0.6];
-    
-    NSMutableArray *nowNews = _newsData;
+    NSMutableArray *nowNews = self.newsData;
 //    下拉刷新时，将refresh文件里的数据添加到目前数据的前面
     NSData *JSONData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"refresh" ofType:@"json"]];
     NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingAllowFragments error:nil];
@@ -197,12 +189,6 @@ SFSafariViewControllerDelegate>
 //上拉加载
 - (void)pullToAdd
 {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.mode = MBProgressHUDModeIndeterminate;
-    hud.label.text = @"请稍候";
-    [hud hideAnimated:YES afterDelay:0.6];
-    
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     NSData *JSONData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"refresh" ofType:@"json"]];
     NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingAllowFragments error:nil];
     NSMutableArray *newsArray = [dataDic objectForKey:@"data"];
@@ -211,7 +197,6 @@ SFSafariViewControllerDelegate>
         [self.newsData addObject:model];
     }
     [self.newsTableView reloadData];
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
     [self.newsTableView.mj_footer endRefreshing];
 }
 - (void)didReceiveMemoryWarning {
@@ -251,7 +236,7 @@ SFSafariViewControllerDelegate>
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.newsData.count + 2;
+    return self.newsData.count + self.adsData.count + self.paidNewsData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -283,28 +268,6 @@ SFSafariViewControllerDelegate>
     return cell;
 }
 
-//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
-//{
-//    MJRefreshAutoFooter *refreshFooter = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(pullToAdd)];
-//    refreshFooter.refreshingTitleHidden = YES;
-    
-//    return refreshFooter;
-//}
-
-//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-//{
-//    return 50;
-//}
-
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//    return self.headerView;
-//}
-//
-//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-//{
-//    return 130;
-//}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"第%ld个cell被点击",(long)indexPath.row);

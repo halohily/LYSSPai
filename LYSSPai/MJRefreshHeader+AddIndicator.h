@@ -9,7 +9,7 @@
 #import <MJRefresh/MJRefresh.h>
 
 @interface MJRefreshHeader (AddIndicator)
-
+//简单自定义一个带有转动菊花的header
 + (instancetype)indicatorHeaderWithRefreshingTarget:(id)target refreshingAction:(SEL)action;
 
 @end

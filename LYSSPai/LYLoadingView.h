@@ -11,9 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LYLoadingView : UIView
-
+//隐藏传入view中的loadingview
 + (BOOL)hideLoadingViewFromView:(UIView *)view;
-
+//为传入view显示一个loadingview
 + (BOOL)showLoadingViewToView:(UIView *)view WithFrame:(CGRect)frame;
 
 @end

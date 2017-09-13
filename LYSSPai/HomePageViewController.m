@@ -63,6 +63,7 @@ SFSafariViewControllerDelegate>
 
 - (void)setupData
 {
+//    为模拟网络获取数据时的延迟，这里手动设置延迟0.8s，否则loadingview一闪而过
     dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8/*延迟执行时间*/ * NSEC_PER_SEC));
     dispatch_after(delayTime, dispatch_get_main_queue(), ^{
         NSData *JSONDataNews = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"newsData" ofType:@"json"]];
@@ -89,6 +90,7 @@ SFSafariViewControllerDelegate>
         PaidNewsModel *paidModel = [PaidNewsModel PaidNewsModelWithArr:paidNewsArray];
         [self.paidNewsData addObject:paidModel];
         [self.newsTableView reloadData];
+//        隐藏loadingview
         [LYLoadingView hideLoadingViewFromView:self.view];
     });
 }
@@ -115,7 +117,7 @@ SFSafariViewControllerDelegate>
     news.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.newsTableView = news;
     
-    
+//    初始化下拉刷新header
     MJRefreshHeader *refreshHeader = [MJRefreshHeader indicatorHeaderWithRefreshingTarget:self refreshingAction:@selector(dropDownToRefresh)];
     self.backgroundScrollView.mj_header = refreshHeader;
     
@@ -294,6 +296,7 @@ SFSafariViewControllerDelegate>
     [self.actionSheet show];
 }
 
+//cell的左划手势方法：进入分类专题页面
 - (void)swipeLeft
 {
     ClassedViewController *classVC = [[ClassedViewController alloc] init];
@@ -302,12 +305,14 @@ SFSafariViewControllerDelegate>
 #pragma mark - AdsCell delegate
 - (void)adsCellTappedByTag:(NSInteger)tag
 {
+//    第一个和第二个模仿safariVC
     if (tag == 0 || tag == 1)
     {
         SFSafariViewController *safari = [[SFSafariViewController alloc] initSFWithURL:[NSURL URLWithString:@"https://www.apple.com/cn/"]];
         safari.delegate = self;
         [self.navigationController pushViewController:safari animated:YES];
     }
+//    其余为普通文章页面
     else
     {
         NewsModel *newsModel = self.newsData[0];
@@ -332,6 +337,7 @@ SFSafariViewControllerDelegate>
 #pragma mark - headview delgegate
 - (void)BtnClicked
 {
+//    进入分类专题页面
     ClassedViewController *classVC = [[ClassedViewController alloc] init];
     [self.navigationController pushViewController:classVC animated:YES];
 }

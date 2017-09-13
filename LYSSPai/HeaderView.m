@@ -87,6 +87,19 @@
         self.frame = CGRectMake(0, 0, LYScreenWidth, 64);
     }
 }
+
+- (void)messageViewScrollBySmallY:(float)Y
+{
+    self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:36.0];
+    [self.titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(36.0);
+    }];
+    [self.button mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(20.0);
+        make.height.mas_equalTo(20.0);
+    }];
+
+}
 //导航标题label懒加载
 - (UILabel *)titleLabel
 {

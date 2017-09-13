@@ -47,9 +47,7 @@
     backScrollView.showsVerticalScrollIndicator = NO;
     backScrollView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:backScrollView];
-//////    为selectview和headview留出位置
-//    backScrollView.contentInset = UIEdgeInsetsMake(140, 0, 0, 0);
-//    backScrollView.contentSize = CGSizeMake(0, LYScreenHeight + 50);
+
     backScrollView.delegate = self;
     self.backView = backScrollView;
     MJRefreshHeader *refreshHeader = [MJRefreshHeader indicatorHeaderWithRefreshingTarget:self refreshingAction:@selector(dropDownToRefresh)];
@@ -99,9 +97,16 @@
 //    如果是底部scrollview，则作竖向滑动的效果处理
     if (scrollView == self.backView)
     {
-        NSLog(@"scroll %f",scrollView.contentOffset.y);
-        [self.headerView viewScrolledByY:scrollView.contentOffset.y - 130];
-//        [self.selectView viewScrolledByY:scrollView.contentOffset.y];
+        CGFloat Y = scrollView.contentOffset.y;
+        NSLog(@"scroll %f",Y);
+        if (Y < 0)
+        {
+            [self.headerView messageViewScrollBySmallY:Y - 130];
+        }
+        else
+        {
+            [self.headerView viewScrolledByY:Y - 130];
+        }
         return;
     }
     if (scrollView == self.contentView)
@@ -142,42 +147,8 @@
         }
         [self contentViewScrollAnimation];
     }
-//    if (scrollView == self.backView)
-//    {
-//        if (scrollView.contentOffset.y > -140)
-//        {
-//            [UIView animateWithDuration:0.3 animations:^{
-//                [self.backView setContentOffset:CGPointMake(0, -140)];
-//            }];
-//        }
-//    }
+}
 
-}
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
-    if (scrollView == self.backView)
-    {
-//        NSLog(@"when decelerate ends Y :: %f",scrollView.contentOffset.y);
-////        NSLog(@"when scrolling ends Y :: %f",scrollView.contentOffset.y);
-//        [UIView animateWithDuration:0.0 animations:^{
-//            [self.backView setContentOffset:CGPointMake(0, 0)];
-//        }];
-//        [self.headerView viewScrolledByY:-140];
-//        [UIView animateWithDuration:1.0 animations:^{
-//            self.headerView.frame = CGRectMake(0, 0, LYScreenWidth, 100);
-//        }];
-//        [UIView animateWithDuration:1.0 animations:^{
-//            [self.selectView viewScrolledByY:-100];
-//        }];
-    }
-}
-- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
-{
-    NSLog(@"scroll end");
-    if (scrollView == self.backView)
-    {
-    }
-}
 //内容页进行移动的封装
 - (void)contentViewScrollAnimation
 {

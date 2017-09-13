@@ -443,7 +443,7 @@ typedef void (^TBBlurEffectBlock)(void);
     
     self.originalBackgroundImage = [self screenShotRect:CGRectMake(kContainerLeft, kScreenHeight-containerHeight, self.sheetWidth, containerHeight)];
     
-    CGFloat heightLargerThanImage = containerHeight - self.originalBackgroundImage.size.height;// 计算 container 的高度超出截图的数值
+//    CGFloat heightLargerThanImage = containerHeight - self.originalBackgroundImage.size.height;// 计算 container 的高度超出截图的数值
     
     __block BOOL useBoxBlurEffect = NO;
 //    self.displayLink.paused = YES;

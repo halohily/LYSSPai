@@ -22,4 +22,6 @@
 - (instancetype)initWithTitle:(NSString *)title Button:(nullable NSString *)button;
 //scrollview的offset Y值变化时，视图作相应变化
 - (void)viewScrolledByY:(float)Y;
+
+- (void)messageViewScrollBySmallY:(float)Y;
 @end
